@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "project-one",
+    "name": "[PROJECT NAME]",
+    "category": "Residential",
+    "city": "[CITY]",
+    "size": "[e.g. 1,800 sq. ft.]",
+    "scope": "[e.g. Full interior design, execution]",
+    "timeline": "[e.g. 5 months]",
+    "brief": "[Client name/description] came to us with [the real starting problem]. The brief was [the actual goal]. What we changed: [1–2 concrete decisions].",
+    "heroImage": "/images/placeholder-project.jpg",
+    "images": [],
+    "closingLine": "",
+    "featured": true
+  },
+  {
+    "slug": "project-two",
+    "name": "[PROJECT NAME]",
+    "category": "Commercial",
+    "city": "[CITY]",
+    "size": "[e.g. 2,400 sq. ft.]",
+    "scope": "[e.g. Full interior design, execution]",
+    "timeline": "[e.g. 4 months]",
+    "brief": "[Client name/description] came to us with [the real starting problem]. The brief was [the actual goal]. What we changed: [1–2 concrete decisions].",
+    "heroImage": "/images/placeholder-project.jpg",
+    "images": [],
+    "closingLine": "",
+    "featured": true
+  },
+  {
+    "slug": "project-three",
+    "name": "[PROJECT NAME]",
+    "category": "Residential",
+    "city": "[CITY]",
+    "size": "[e.g. 1,200 sq. ft.]",
+    "scope": "[e.g. Full interior design, execution]",
+    "timeline": "[e.g. 6 months]",
+    "brief": "[Client name/description] came to us with [the real starting problem]. The brief was [the actual goal]. What we changed: [1–2 concrete decisions].",
+    "heroImage": "/images/placeholder-project.jpg",
+    "images": [],
+    "closingLine": "",
+    "featured": true
+  },
+  {
+    "slug": "project-four",
+    "name": "[PROJECT NAME]",
+    "category": "Hospitality",
+    "city": "[CITY]",
+    "size": "[e.g. 3,000 sq. ft.]",
+    "scope": "[e.g. Full interior design, execution]",
+    "timeline": "[e.g. 7 months]",
+    "brief": "[Client name/description] came to us with [the real starting problem]. The brief was [the actual goal]. What we changed: [1–2 concrete decisions].",
+    "heroImage": "/images/placeholder-project.jpg",
+    "images": [],
+    "closingLine": "",
+    "featured": true
+  }
+]
