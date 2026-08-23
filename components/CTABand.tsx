@@ -35,7 +35,7 @@ export function CTABand() {
             <div className="mt-16">
               <Button
                 href="/contact"
-                variant="solid"
+                variant="primary"
                 className="bg-ink text-surface hover:bg-accent hover:text-ink transition-colors duration-500 px-12 py-5 text-lg rounded-full"
               >
                 Start the Conversation

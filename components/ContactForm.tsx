@@ -20,9 +20,7 @@ export function ContactForm() {
     const formData = new FormData(form);
 
     try {
-      if (GOOGLE_SCRIPT_URL === "YOUR_WEB_APP_URL_HERE") {
-        throw new Error("Please add your Google Script URL to the code first.");
-      }
+      // Skip placeholder check as we have a real URL
 
       await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
@@ -126,7 +124,7 @@ export function ContactForm() {
       
       {error && <p className="text-red-500 text-sm">{error}</p>}
 
-      <Button type="submit" variant="solid" disabled={isSubmitting} className="bg-ink text-surface px-12 py-5 rounded-full hover:bg-accent transition-colors duration-500 w-full lg:w-auto disabled:opacity-50 disabled:cursor-not-allowed">
+      <Button type="submit" variant="primary" disabled={isSubmitting} className="bg-ink text-surface px-12 py-5 rounded-full hover:bg-accent transition-colors duration-500 w-full lg:w-auto disabled:opacity-50 disabled:cursor-not-allowed">
         {isSubmitting ? "Sending..." : "Send Inquiry"}
       </Button>
     </form>

@@ -161,7 +161,7 @@ export default function StudioPage() {
           <Container className="text-center">
             <FadeIn>
               <h2 className="font-serif text-[length:var(--text-h3)] mb-8">Discuss your project</h2>
-              <Button href="/contact" variant="solid" className="bg-ink text-surface px-12 py-5 rounded-full hover:bg-accent transition-colors duration-500">
+              <Button href="/contact" variant="primary" className="bg-ink text-surface px-12 py-5 rounded-full hover:bg-accent transition-colors duration-500">
                 Book a Consultation
               </Button>
             </FadeIn>

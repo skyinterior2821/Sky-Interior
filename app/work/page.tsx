@@ -83,7 +83,7 @@ export default function WorkPage() {
           <div className="mt-24 lg:mt-40 text-center">
             <FadeIn>
               <p className="font-serif text-[length:var(--text-h3)] text-ink mb-6">Have a project in mind?</p>
-              <Button href="/contact" variant="solid" className="bg-ink text-surface px-12 py-5 rounded-full hover:bg-accent transition-colors duration-500">
+              <Button href="/contact" variant="primary" className="bg-ink text-surface px-12 py-5 rounded-full hover:bg-accent transition-colors duration-500">
                 Let&apos;s Talk
               </Button>
             </FadeIn>
