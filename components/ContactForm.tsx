@@ -1,186 +1,134 @@
-"use client";
+'use client';
 
 import { useState } from "react";
 import { Button } from "@/components/ui";
 
-const SPACE_TYPES = ["Residential", "Commercial", "Hospitality", "Not sure yet"];
+// Google Apps Script Web App URL for form submission
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyrXGwSxW6AOzOJUQZA-b5SNKptlMy_YcFoMdmju9LtKb1LCIarSkUv50-4BB07UVH6/exec";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [generalError, setGeneralError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState("");
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("submitting");
-    setErrors({});
-    setGeneralError("");
+    setIsSubmitting(true);
+    setError("");
 
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      phone: formData.get("phone") as string,
-      spaceType: formData.get("spaceType") as string,
-      message: formData.get("message") as string,
-      honeypot: formData.get("company_url") as string, // honeypot field
-    };
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      const result = await res.json();
-
-      if (!res.ok) {
-        if (result.errors) {
-          setErrors(result.errors);
-        } else {
-          setGeneralError(result.message || "Something went wrong. Please try again.");
-        }
-        setStatus("error");
-        return;
+      if (GOOGLE_SCRIPT_URL === "YOUR_WEB_APP_URL_HERE") {
+        throw new Error("Please add your Google Script URL to the code first.");
       }
 
-      setStatus("success");
-    } catch {
-      setGeneralError("Something went wrong. Please try again.");
-      setStatus("error");
-    }
-  }
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        body: formData,
+        mode: "no-cors", // Required for Google Apps Script to avoid CORS errors
+      });
 
-  if (status === "success") {
+      setIsSuccess(true);
+      form.reset();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  if (isSuccess) {
     return (
-      <div className="py-12 text-center">
-        <h3 className="font-serif text-[length:var(--text-h3)] mb-4">
-          Thanks — we&apos;ve got it.
-        </h3>
-        <p className="text-ink-muted">
-          {/* content.md — post-submit confirmation */}
-          We&apos;ll get back to you within [X business days].
-        </p>
+      <div className="bg-surface/50 border border-border/50 rounded-3xl p-8 text-center space-y-4">
+        <h3 className="font-serif text-[length:var(--text-h3)] text-ink">Thank you!</h3>
+        <p className="text-ink-muted font-light">We&apos;ve received your inquiry and will be in touch shortly.</p>
+        <Button onClick={() => setIsSuccess(false)} variant="outline" className="mt-4">
+          Send another message
+        </Button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-6 max-w-xl">
-      {/* Honeypot — hidden from humans, bots fill it */}
-      <div className="absolute -left-[9999px]" aria-hidden="true">
-        <label htmlFor="company_url">Leave this empty</label>
-        <input type="text" id="company_url" name="company_url" tabIndex={-1} autoComplete="off" />
-      </div>
-
-      <div>
-        <label htmlFor="name" className="block text-sm font-sans text-ink-muted mb-1.5">
-          Name <span className="text-clay">*</span>
-        </label>
-        <input
-          type="text"
-          id="name"
+    <form className="space-y-12" onSubmit={handleSubmit}>
+      <div className="relative group mt-8">
+        <input 
+          type="text" 
+          id="name" 
           name="name"
-          required
-          className="w-full px-4 py-3 bg-surface border border-border text-ink text-[length:var(--text-body)] focus:outline-none focus:border-accent transition-colors"
-          aria-invalid={!!errors.name}
-          aria-describedby={errors.name ? "name-error" : undefined}
+          required 
+          pattern="^[A-Za-z\s]+$" 
+          title="Only letters and spaces are allowed. No numbers or special characters." 
+          className="peer w-full bg-transparent border-b border-border/60 py-4 text-ink focus:outline-none focus-visible:outline-none focus-visible:ring-0 focus:border-accent-deep transition-colors placeholder-transparent" 
+          placeholder="Name" 
+          onInput={(e) => {
+            e.currentTarget.value = e.currentTarget.value.replace(/[^A-Za-z\s]/g, '');
+          }}
         />
-        {errors.name && (
-          <p id="name-error" className="mt-1 text-sm text-clay">{errors.name}</p>
-        )}
+        <label htmlFor="name" className="absolute left-0 -top-3.5 text-sm text-ink-muted transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-accent-deep peer-focus:uppercase peer-focus:tracking-widest cursor-text">Name</label>
       </div>
-
-      <div>
-        <label htmlFor="email" className="block text-sm font-sans text-ink-muted mb-1.5">
-          Email <span className="text-clay">*</span>
-        </label>
-        <input
-          type="email"
-          id="email"
+      
+      <div className="relative group mt-8">
+        <input 
+          type="email" 
+          id="email" 
           name="email"
-          required
-          className="w-full px-4 py-3 bg-surface border border-border text-ink text-[length:var(--text-body)] focus:outline-none focus:border-accent transition-colors"
-          aria-invalid={!!errors.email}
-          aria-describedby={errors.email ? "email-error" : undefined}
+          required 
+          className="peer w-full bg-transparent border-b border-border/60 py-4 text-ink focus:outline-none focus-visible:outline-none focus-visible:ring-0 focus:border-accent-deep transition-colors placeholder-transparent" 
+          placeholder="Email" 
         />
-        {errors.email && (
-          <p id="email-error" className="mt-1 text-sm text-clay">{errors.email}</p>
-        )}
+        <label htmlFor="email" className="absolute left-0 -top-3.5 text-sm text-ink-muted transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-accent-deep peer-focus:uppercase peer-focus:tracking-widest cursor-text">Email Address</label>
       </div>
 
-      <div>
-        <label htmlFor="phone" className="block text-sm font-sans text-ink-muted mb-1.5">
-          Phone <span className="text-clay">*</span>
-        </label>
-        <input
-          type="tel"
-          id="phone"
+      <div className="relative group mt-8">
+        <input 
+          type="tel" 
+          id="phone" 
           name="phone"
-          required
-          className="w-full px-4 py-3 bg-surface border border-border text-ink text-[length:var(--text-body)] focus:outline-none focus:border-accent transition-colors"
-          aria-invalid={!!errors.phone}
-          aria-describedby={errors.phone ? "phone-error" : undefined}
+          required 
+          maxLength={10}
+          pattern="^[0-9]{10}$" 
+          title="Please enter exactly 10 digits." 
+          className="peer w-full bg-transparent border-b border-border/60 py-4 text-ink focus:outline-none focus-visible:outline-none focus-visible:ring-0 focus:border-accent-deep transition-colors placeholder-transparent" 
+          placeholder="Phone Number" 
+          onInput={(e) => {
+            e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
+          }}
         />
-        {errors.phone && (
-          <p id="phone-error" className="mt-1 text-sm text-clay">{errors.phone}</p>
-        )}
+        <label htmlFor="phone" className="absolute left-0 -top-3.5 text-sm text-ink-muted transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-accent-deep peer-focus:uppercase peer-focus:tracking-widest cursor-text">Phone Number</label>
       </div>
-
-      <div>
-        <label htmlFor="spaceType" className="block text-sm font-sans text-ink-muted mb-1.5">
-          Space type <span className="text-clay">*</span>
-        </label>
-        <select
-          id="spaceType"
-          name="spaceType"
-          required
-          defaultValue=""
-          className="w-full px-4 py-3 bg-surface border border-border text-ink text-[length:var(--text-body)] focus:outline-none focus:border-accent transition-colors appearance-none"
-          aria-invalid={!!errors.spaceType}
-          aria-describedby={errors.spaceType ? "spaceType-error" : undefined}
-        >
-          <option value="" disabled>Select space type</option>
-          {SPACE_TYPES.map((type) => (
-            <option key={type} value={type}>{type}</option>
-          ))}
-        </select>
-        {errors.spaceType && (
-          <p id="spaceType-error" className="mt-1 text-sm text-clay">{errors.spaceType}</p>
-        )}
-      </div>
-
-      <div>
-        <label htmlFor="message" className="block text-sm font-sans text-ink-muted mb-1.5">
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={5}
-          placeholder="A little about the space and what you're hoping to change."
-          className="w-full px-4 py-3 bg-surface border border-border text-ink text-[length:var(--text-body)] focus:outline-none focus:border-accent transition-colors resize-y"
-          aria-invalid={!!errors.message}
-          aria-describedby={errors.message ? "message-error" : undefined}
+      
+      <div className="relative group mt-8">
+        <input 
+          type="text" 
+          id="project" 
+          name="project"
+          required 
+          className="peer w-full bg-transparent border-b border-border/60 py-4 text-ink focus:outline-none focus-visible:outline-none focus-visible:ring-0 focus:border-accent-deep transition-colors placeholder-transparent" 
+          placeholder="Project Type & Location" 
         />
-        {errors.message && (
-          <p id="message-error" className="mt-1 text-sm text-clay">{errors.message}</p>
-        )}
+        <label htmlFor="project" className="absolute left-0 -top-3.5 text-sm text-ink-muted transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-accent-deep peer-focus:uppercase peer-focus:tracking-widest cursor-text">Project Type & Location (e.g. Residential, Ahmedabad)</label>
       </div>
+      
+      <div className="relative group mt-8">
+        <textarea 
+          id="details" 
+          name="details"
+          rows={4} 
+          required 
+          className="peer w-full bg-transparent border-b border-border/60 py-4 text-ink focus:outline-none focus-visible:outline-none focus-visible:ring-0 focus:border-accent-deep transition-colors placeholder-transparent resize-none" 
+          placeholder="Details" 
+        />
+        <label htmlFor="details" className="absolute left-0 -top-3.5 text-sm text-ink-muted transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-accent-deep peer-focus:uppercase peer-focus:tracking-widest cursor-text">Project Details & Budget Range</label>
+      </div>
+      
+      {error && <p className="text-red-500 text-sm">{error}</p>}
 
-      {generalError && (
-        <p className="text-sm text-clay">{generalError}</p>
-      )}
-
-      <Button type="submit" disabled={status === "submitting"}>
-        {status === "submitting" ? "Sending…" : "Send Enquiry"}
+      <Button type="submit" variant="solid" disabled={isSubmitting} className="bg-ink text-surface px-12 py-5 rounded-full hover:bg-accent transition-colors duration-500 w-full lg:w-auto disabled:opacity-50 disabled:cursor-not-allowed">
+        {isSubmitting ? "Sending..." : "Send Inquiry"}
       </Button>
-
-      {/* Privacy note — content.md / techspec.md §5.3 */}
-      <p className="text-xs text-ink-muted mt-4">
-        Your details are used only to respond to this enquiry — nothing else.
-      </p>
     </form>
   );
 }

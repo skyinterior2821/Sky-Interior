@@ -1,32 +1,34 @@
 import type { Metadata } from "next";
-import { Fraunces, Public_Sans } from "next/font/google";
+import localFont from "next/font/local";
+import { LenisScroll } from "@/components/LenisScroll";
+import { CustomCursor } from "@/components/CustomCursor";
+import { Noise } from "@/components/Noise";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const publicSans = Public_Sans({
-  variable: "--font-public-sans",
-  subsets: ["latin"],
+const bubblegum = localFont({
+  src: "../public/fonts/BubblegumSans-Regular.ttf",
+  variable: "--font-bubblegum",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Sky Interiors — Interior Design Studio in [CITY]",
+  title: "Sky Interior — Interior Design Studio in Ahmedabad",
   description:
-    "Sky Interiors designs considered residential and commercial interiors in [CITY], from first concept through execution.",
+    "Sky Interior designs considered residential and commercial interiors in Ahmedabad and Banswara, from first concept through execution.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${publicSans.variable}`}
+      className={`${bubblegum.variable}`}
     >
-      <body>{children}</body>
+      <body className="bg-bg text-ink antialiased selection:bg-accent selection:text-bg">
+        <Noise />
+        <LenisScroll />
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }
