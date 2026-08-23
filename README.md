@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <img src="public/logo.png" alt="Sky Interior Logo" width="100" />
+  
+  # Sky Interior
+  
+  **A boutique interior design studio based in Ahmedabad & Banswara.**  
+  *Designing spaces around how a family actually lives day-to-day, rather than chasing fleeting trends.*
 
-## Getting Started
+  <br />
 
-First, run the development server:
+  ![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
+  ![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?style=for-the-badge&logo=typescript)
+  ![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css)
+  ![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer)
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌟 Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Welcome to the official portfolio repository for **Sky Interior**. This project is a premium, modern, and highly interactive web application designed to showcase architectural and interior design projects with elegance and style. 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Built from the ground up using **Next.js (App Router)** and **Tailwind CSS**, it heavily utilizes **Framer Motion** for silky-smooth scroll effects, staggered reveals, and magnetic UI interactions.
 
-## Learn More
+## ✨ Features
 
-To learn more about Next.js, take a look at the following resources:
+- **Premium Typography & Layouts**: Custom fonts mixed with elegant serif headings and strict grid-based layouts to reflect architectural precision.
+- **Micro-Interactions**: Features a custom cursor, magnetic button pull effects, and smooth scroll hijacking (via Lenis) for a native-app feel.
+- **Serverless Form Integration**: The contact form securely bypasses standard backend requirements by interfacing directly with a custom Google Apps Script, pushing leads straight to Google Sheets and sending instant email notifications.
+- **Fully Responsive**: Meticulously crafted for all screen sizes, ensuring the design holds up perfectly on mobile devices.
+- **Dynamic Project Routing**: Project details are served dynamically with stunning full-bleed hero images and staggered content loading.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠 Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/) & [Lenis](https://lenis.studiofreight.com/) (Smooth Scrolling)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Deployment**: [Vercel](https://vercel.com)
+- **Database/Email**: Google Apps Script & Google Sheets
 
-## Deploy on Vercel
+## 🚀 Getting Started
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To get a local copy up and running, follow these simple steps.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Prerequisites
+Make sure you have Node.js installed (v18.17 or higher is recommended).
+
+### Installation
+
+1. **Clone the repo**
+   ```sh
+   git clone https://github.com/skyinterior2821/Sky-Interior.git
+   ```
+2. **Navigate to the project directory**
+   ```sh
+   cd Sky-Interior
+   ```
+3. **Install NPM packages**
+   ```sh
+   npm install
+   ```
+4. **Run the development server**
+   ```sh
+   npm run dev
+   ```
+5. **Open the browser**  
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the site locally.
+
+## 🤝 Contact
+
+**Harshit & Palak Suthar** - Sky Interior Founders  
+📧 Email: [skyinteriordesin08@gmail.com](mailto:skyinteriordesin08@gmail.com)  
+📱 WhatsApp: [+91 78029 67720](https://wa.me/917802967720)  
+📸 Instagram: [@skyinterior.design](https://instagram.com/skyinterior.design)
+
+---
+<div align="center">
+  <i>Crafted with precision for Sky Interior.</i>
+</div>
