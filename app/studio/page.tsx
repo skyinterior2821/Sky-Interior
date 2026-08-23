@@ -137,15 +137,6 @@ export default function StudioPage() {
             <div className="grid lg:grid-cols-2 gap-16 lg:gap-32">
               {/* Harshit */}
               <FadeIn className="group">
-                <div className="relative aspect-[3/4] w-full bg-surface mb-8 overflow-hidden rounded-[2rem] border border-border">
-                  <Image
-                    src="https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&q=80&w=800"
-                    alt="Harshit Suthar"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out grayscale hover:grayscale-0"
-                  />
-                </div>
                 <h3 className="font-serif text-[length:var(--text-h3)]">Harshit Suthar</h3>
                 <span className="block text-sm text-accent font-semibold uppercase tracking-widest mt-2 mb-6">Project Manager</span>
                 <p className="text-ink-muted leading-relaxed font-light">
@@ -155,15 +146,6 @@ export default function StudioPage() {
 
               {/* Palak */}
               <FadeIn className="group" delay={0.2}>
-                <div className="relative aspect-[3/4] w-full bg-surface mb-8 overflow-hidden rounded-[2rem] border border-border lg:mt-32">
-                  <Image
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
-                    alt="Palak Suthar"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out grayscale hover:grayscale-0"
-                  />
-                </div>
                 <h3 className="font-serif text-[length:var(--text-h3)]">Palak Suthar</h3>
                 <span className="block text-sm text-accent font-semibold uppercase tracking-widest mt-2 mb-6">Design Manager</span>
                 <p className="text-ink-muted leading-relaxed font-light">
