@@ -4,8 +4,16 @@ import { Footer } from "@/components/Footer";
 import { Container, FadeIn, Button } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Process — Sky Interior",
-  description: "How we work: from the first conversation to the final handover.",
+  title: "Our Interior Design Process | Turnkey Execution",
+  description:
+    "Discover the Sky Interior design process. From architectural planning and 3D visualization to turnkey execution and handover in Ahmedabad and Banswara.",
+  keywords: [
+    "Interior Design Process",
+    "Turnkey Interior Execution",
+    "3D Interior Visualization",
+    "Architectural Planning Ahmedabad",
+    "Interior Design Consultation Banswara"
+  ]
 };
 
 const DETAILED_STEPS = [

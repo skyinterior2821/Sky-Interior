@@ -5,8 +5,16 @@ import { Container, FadeIn } from "@/components/ui";
 import { ContactForm } from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact — Sky Interior",
-  description: "Get in touch to discuss your next project.",
+  title: "Contact Top Interior Designers | Sky Interior",
+  description:
+    "Get in touch with Sky Interior for your next residential or commercial project. Reach out to our design studio in Ahmedabad or Banswara.",
+  keywords: [
+    "Contact Interior Designer",
+    "Hire Interior Designer Ahmedabad",
+    "Hire Interior Designer Banswara",
+    "Interior Design Consultation",
+    "Sky Interior Contact"
+  ]
 };
 
 const NEXT_STEPS = [
