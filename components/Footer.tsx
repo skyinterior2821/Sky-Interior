@@ -68,8 +68,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:skyinteriordesin08@gmail.com" className="hover:text-surface transition-colors">
-                  skyinteriordesin08@gmail.com
+                <a href="mailto:skyinteriordesign08@gmail.com" className="hover:text-surface transition-colors">
+                  skyinteriordesign08@gmail.com
                 </a>
               </li>
               <li>

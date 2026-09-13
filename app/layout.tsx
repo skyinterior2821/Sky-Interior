@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { LenisScroll } from "@/components/LenisScroll";
 import { CustomCursor } from "@/components/CustomCursor";
 import { Noise } from "@/components/Noise";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const bubblegum = localFont({

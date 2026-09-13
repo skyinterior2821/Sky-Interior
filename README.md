@@ -71,7 +71,7 @@ Make sure you have Node.js installed (v18.17 or higher is recommended).
 ## 🤝 Contact
 
 **Harshit & Palak Suthar** - Sky Interior Founders  
-📧 Email: [skyinteriordesin08@gmail.com](mailto:skyinteriordesin08@gmail.com)  
+📧 Email: [skyinteriordesign08@gmail.com](mailto:skyinteriordesign08@gmail.com)  
 📱 WhatsApp: [+91 78029 67720](https://wa.me/917802967720)  
 📸 Instagram: [@skyinterior.design](https://instagram.com/skyinterior.design)
 
