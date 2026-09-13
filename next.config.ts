@@ -22,11 +22,11 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: blob: https://images.unsplash.com",
               "font-src 'self' data:",
-              "connect-src 'self' https://script.google.com https://script.googleusercontent.com",
+              "connect-src 'self' https://script.google.com https://script.googleusercontent.com https://api.github.com",
               "frame-ancestors 'none'",
             ].join("; "),
           },

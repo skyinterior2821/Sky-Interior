@@ -1,0 +1,51 @@
+backend:
+  name: github
+  repo: skyinterior2821/Sky-Interior
+  branch: main
+  # You will be prompted to log in to GitHub to commit changes directly.
+
+media_folder: "public/images/projects"
+public_folder: "/images/projects"
+
+site_url: https://www.theskyinterior.com
+display_url: https://www.theskyinterior.com
+logo_url: https://www.theskyinterior.com/logo.png
+
+collections:
+  - name: "projects"
+    label: "Portfolio Projects"
+    # Decap is set up to edit items in a JSON array file!
+    folder: "content"
+    extension: "json"
+    format: "json"
+    create: true
+    # Wait, actually Decap edits one file per entry in a folder. 
+    # Let's pivot to creating individual JSON files in content/projects/ instead of one giant JSON file.
+    # To keep compatibility, we will configure it as a file collection that edits the single JSON file directly:
+  - name: "data"
+    label: "Data Files"
+    files:
+      - label: "Projects Database"
+        name: "projects_json"
+        file: "content/projects.json"
+        description: "Manage all your portfolio projects here"
+        fields:
+          - label: "Projects List"
+            name: "projects"
+            widget: "list"
+            fields:
+              - {label: "Project Name", name: "name", widget: "string"}
+              - {label: "URL Slug", name: "slug", widget: "string", hint: "e.g. lakeside-villa (no spaces)"}
+              - {label: "Category", name: "category", widget: "select", options: ["Residential", "Commercial", "Hospitality"]}
+              - {label: "City", name: "city", widget: "string"}
+              - {label: "Size", name: "size", widget: "string"}
+              - {label: "Scope", name: "scope", widget: "string"}
+              - {label: "Timeline", name: "timeline", widget: "string"}
+              - {label: "Brief & Changes", name: "brief", widget: "text"}
+              - {label: "Closing Line", name: "closingLine", widget: "string"}
+              - {label: "Featured", name: "featured", widget: "boolean"}
+              - {label: "Hero Image URL", name: "heroImage", widget: "string"}
+              - label: "Gallery Images URLs"
+                name: "images"
+                widget: "list"
+                field: {label: "Image URL", name: "url", widget: "string"}

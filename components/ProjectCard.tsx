@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Project } from "@/lib/types";
@@ -8,6 +11,8 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, large = false }: ProjectCardProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
     <Link
       href={`/work/${project.slug}`}
@@ -24,7 +29,10 @@ export function ProjectCard({ project, large = false }: ProjectCardProps) {
           alt={project.name}
           fill
           sizes={large ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
-          className="object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+          className={`object-cover transform group-hover:scale-105 transition-all duration-700 ease-out ${
+            isLoaded ? "opacity-100 blur-0" : "opacity-0 blur-lg"
+          }`}
+          onLoad={() => setIsLoaded(true)}
         />
         
         {/* Hover Overlay */}

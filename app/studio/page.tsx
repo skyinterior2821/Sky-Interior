@@ -5,13 +5,13 @@ import { Container, Button, FadeIn } from "@/components/ui";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Interior Design Studio in Ahmedabad & Banswara",
+  title: "Premium Interior Design Studio",
   description:
-    "Meet the founders of Sky Interior, Harshit and Palak Suthar. We are a premium interior design studio serving Ahmedabad, Banswara, and surrounding areas.",
+    "Meet the founders of Sky Interior, Harshit and Palak Suthar. We are a premium interior design studio.",
   keywords: [
     "Interior Design Studio",
-    "Best Interior Designers Ahmedabad",
-    "Top Interior Designers Banswara",
+    "Best Interior Designers",
+    "Top Interior Designers",
     "Residential Interior Architecture",
     "Harshit Suthar",
     "Palak Suthar"

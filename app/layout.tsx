@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { LenisScroll } from "@/components/LenisScroll";
 import { CustomCursor } from "@/components/CustomCursor";
 import { Noise } from "@/components/Noise";
+import { Preloader } from "@/components/Preloader";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
@@ -14,22 +15,22 @@ const bubblegum = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "Sky Interior | Premium Interior Designers in Ahmedabad & Banswara",
+    default: "Sky Interior | Premium Interior Design Studio",
     template: "%s | Sky Interior"
   },
   description:
-    "Sky Interior is a top-rated boutique interior design studio offering premium residential and commercial interior design, turnkey execution, and custom architecture in Ahmedabad and Banswara.",
+    "Sky Interior is a top-rated boutique interior design studio offering premium residential and commercial interior design, turnkey execution, and custom architecture.",
   keywords: [
-    "Interior Designer in Ahmedabad",
-    "Best Interior Designer in Banswara",
-    "Luxury Interior Design Ahmedabad",
+    "Interior Designer",
+    "Best Interior Designer",
+    "Luxury Interior Design",
     "Residential Interior Designer",
     "Commercial Interior Design",
     "Turnkey Interior Execution",
     "Boutique Design Studio",
     "Architectural Planning",
-    "Home Interiors Ahmedabad",
-    "Office Interior Design Banswara",
+    "Home Interiors",
+    "Office Interior Design",
     "Sky Interior"
   ],
   authors: [{ name: "Harshit Suthar" }, { name: "Palak Suthar" }],
@@ -38,14 +39,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://www.theskyinterior.com/",
-    title: "Sky Interior | Premium Interior Designers in Ahmedabad & Banswara",
-    description: "Premium residential and commercial interior design studio in Ahmedabad and Banswara.",
+    title: "Sky Interior | Premium Interior Design Studio",
+    description: "Premium residential and commercial interior design studio.",
     siteName: "Sky Interior",
   },
   twitter: {
     card: "summary_large_image",
     title: "Sky Interior | Interior Design Studio",
-    description: "Premium residential and commercial interior design studio in Ahmedabad and Banswara.",
+    description: "Premium residential and commercial interior design studio.",
   },
   alternates: {
     canonical: "https://www.theskyinterior.com/",
@@ -70,6 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${bubblegum.variable}`}
     >
       <body className="bg-bg text-ink antialiased selection:bg-accent selection:text-bg">
+        <Preloader />
         <Noise />
         <LenisScroll />
         <CustomCursor />
