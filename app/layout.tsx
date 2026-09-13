@@ -4,6 +4,7 @@ import { LenisScroll } from "@/components/LenisScroll";
 import { CustomCursor } from "@/components/CustomCursor";
 import { Noise } from "@/components/Noise";
 import { Preloader } from "@/components/Preloader";
+import { FloatingActionButtons } from "@/components/FloatingActionButtons";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
@@ -75,6 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Noise />
         <LenisScroll />
         <CustomCursor />
+        <FloatingActionButtons />
         {children}
         <SpeedInsights />
         
