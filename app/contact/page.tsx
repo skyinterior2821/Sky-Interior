@@ -96,7 +96,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-sans text-xs uppercase tracking-widest text-accent font-semibold mb-3">Email</h3>
                     <p className="font-serif text-[length:var(--text-lg)] text-ink">
-                      <a href="mailto:skyinteriordesin08@gmail.com" className="hover:text-accent-deep transition-colors">skyinteriordesin08@gmail.com</a>
+                      <a href="mailto:skyinteriordesign08@gmail.com" className="hover:text-accent-deep transition-colors">skyinteriordesign08@gmail.com</a>
                     </p>
                   </div>
                   
