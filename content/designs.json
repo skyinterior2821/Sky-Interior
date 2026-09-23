@@ -1,0 +1,66 @@
+[
+  {
+    "id": "d-1",
+    "title": "Minimalist Oak Living",
+    "room": "Living Room",
+    "style": "Minimal",
+    "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200",
+    "description": "Clean lines and warm oak textures."
+  },
+  {
+    "id": "d-2",
+    "title": "Japandi Bedroom Retreat",
+    "room": "Bedroom",
+    "style": "Japandi",
+    "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=1200",
+    "description": "Low-profile bed and natural woven elements."
+  },
+  {
+    "id": "d-3",
+    "title": "Modern Classic Dining",
+    "room": "Dining",
+    "style": "Modern Classic",
+    "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200",
+    "description": "Elegant moldings paired with contemporary lighting."
+  },
+  {
+    "id": "d-4",
+    "title": "Luxury Marble Kitchen",
+    "room": "Kitchen",
+    "style": "Luxury",
+    "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200",
+    "description": "Seamless marble surfaces with brass fixtures."
+  },
+  {
+    "id": "d-5",
+    "title": "Contemporary Home Office",
+    "room": "Home Office",
+    "style": "Contemporary",
+    "image": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=1200",
+    "description": "Productivity meets sleek aesthetic."
+  },
+  {
+    "id": "d-6",
+    "title": "Industrial Loft Kitchen",
+    "room": "Kitchen",
+    "style": "Industrial",
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
+    "description": "Exposed brick and steel accents."
+  },
+  {
+    "id": "d-7",
+    "title": "Indian Contemporary Living",
+    "room": "Living Room",
+    "style": "Indian Contemporary",
+    "image": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&q=80&w=1200",
+    "description": "Rich vibrant textiles balanced with modern forms."
+  },
+  {
+    "id": "d-8",
+    "title": "Spa-like Modern Bathroom",
+    "room": "Bathroom",
+    "style": "Modern",
+    "image": "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&q=80&w=1200",
+    "description": "Terrazzo floors and freestanding tub."
+  }
+]

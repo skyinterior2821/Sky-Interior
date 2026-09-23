@@ -1,48 +1,32 @@
 "use client";
 
-import { Container, Button, FadeIn } from "@/components/ui";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { Container, FadeIn } from "@/components/ui";
+import Link from "next/link";
 
 export function CTABand() {
-  const container = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "end start"]
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.85, 1, 0.95]);
-  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-
   return (
-    <section ref={container} className="py-24 lg:py-40 bg-bg overflow-hidden">
-      <Container>
-        <motion.div 
-          style={{ scale, y }}
-          className="relative bg-surface rounded-[3rem] p-12 lg:p-32 text-center overflow-hidden border border-border/50 shadow-2xl"
-        >
-          {/* Subtle background glow */}
-          <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent pointer-events-none" />
-
-          <FadeIn className="relative z-10">
-            <h2 className="font-serif text-[length:var(--text-h2)] lg:text-[length:var(--text-hero)] leading-[1.1] mb-8 text-ink drop-shadow-sm">
-              Ready to build <br className="hidden md:block" />
-              <span className="italic text-accent/80 font-light">something beautiful?</span>
-            </h2>
-            <p className="mt-4 text-[length:var(--text-lg)] text-ink-muted max-w-2xl mx-auto font-light leading-relaxed">
-              Tell us about your project — whether it's a single room or a full commercial build-out. Let's create a space that feels like you.
-            </p>
-            <div className="mt-16">
-              <Button
-                href="/contact"
-                variant="primary"
-                className="bg-ink text-surface hover:bg-accent hover:text-ink transition-colors duration-500 px-12 py-5 text-lg rounded-full"
-              >
-                Start the Conversation
-              </Button>
-            </div>
-          </FadeIn>
-        </motion.div>
+    <section className="bg-surface relative overflow-hidden border-b border-border">
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-[0.03] grayscale mix-blend-overlay" />
+      <Container className="relative py-32 lg:py-48 text-center md:border-x border-border">
+        <FadeIn>
+          <p className="font-sans text-xs tracking-[0.2em] uppercase text-accent-deep mb-8">
+            Begin the process
+          </p>
+          <h2 className="font-serif text-[length:var(--text-h2)] lg:text-[length:var(--text-hero)] leading-[1.05] mb-10 text-ink max-w-4xl mx-auto drop-shadow-xl">
+            Ready to build <br className="hidden md:block" />
+            <span className="italic font-light text-accent-deep/80">something exceptional?</span>
+          </h2>
+          <p className="mt-6 text-[length:var(--text-lg)] text-ink-muted max-w-2xl mx-auto font-light leading-relaxed mb-16">
+            Tell us about your project — whether it's a bespoke residence or a commercial build-out. Let's create a space that feels unequivocally yours.
+          </p>
+          <Link
+            href="/contact"
+            className="group relative overflow-hidden bg-accent-deep text-surface hover:text-ink px-10 py-5 uppercase tracking-widest text-xs font-medium inline-block"
+          >
+            <span className="relative z-10 transition-colors duration-300">Start the Conversation</span>
+            <span className="absolute inset-0 bg-ink transform scale-y-0 group-hover:scale-y-100 transition-transform origin-bottom duration-500 ease-out" />
+          </Link>
+        </FadeIn>
       </Container>
     </section>
   );
