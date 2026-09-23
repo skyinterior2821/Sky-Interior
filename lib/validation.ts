@@ -67,5 +67,50 @@ export function validateContactForm(data: unknown): ValidationResult {
  * Sanitize a string for safe storage/display — strip HTML tags.
  */
 export function sanitize(input: string): string {
+  if (typeof input !== "string") return "";
   return input.replace(/<[^>]*>/g, "").trim();
+}
+
+export function validateConsultationForm(data: unknown): ValidationResult {
+  const errors: Record<string, string> = {};
+
+  if (!data || typeof data !== "object") {
+    return { valid: false, errors: { form: "Invalid form data." } };
+  }
+
+  const form = data as Record<string, unknown>;
+
+  // Honeypot check
+  if (form.honeypot && typeof form.honeypot === "string" && form.honeypot.trim() !== "") {
+    return { valid: false, errors: { form: "Submission rejected." } };
+  }
+
+  // Basic required string fields
+  const requiredFields = ["name", "email", "phone", "city", "property_type", "area", "style", "budget", "design_type"];
+  
+  for (const field of requiredFields) {
+    if (!form[field] || typeof form[field] !== "string" || (form[field] as string).trim().length === 0) {
+      errors[field] = `Please provide a valid ${field.replace('_', ' ')}.`;
+    } else if ((form[field] as string).trim().length > 100) {
+      errors[field] = `${field.replace('_', ' ')} is too long.`;
+    }
+  }
+
+  // Email format
+  if (!errors.email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test((form.email as string).trim())) {
+      errors.email = "Please enter a valid email address.";
+    }
+  }
+
+  // Optional details length
+  if (form.details && typeof form.details === "string" && form.details.trim().length > 2000) {
+    errors.details = "Details are too long (max 2000 characters).";
+  }
+
+  return {
+    valid: Object.keys(errors).length === 0,
+    errors,
+  };
 }

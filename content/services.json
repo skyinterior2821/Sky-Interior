@@ -1,0 +1,165 @@
+[
+  {
+    "slug": "modular-kitchens",
+    "title": "Modular Kitchens",
+    "shortTitle": "Kitchens",
+    "category": "Core Services",
+    "eyebrow": "Kitchen Design",
+    "description": "Functional, beautifully crafted modular kitchens tailored to your cooking style and spatial requirements. We balance aesthetic appeal with everyday practicality.",
+    "heroImage": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200",
+    "gallery": [
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "whatWeDesign": [
+      {
+        "title": "L-Shaped Layouts",
+        "description": "Maximizing corner spaces efficiently."
+      },
+      {
+        "title": "Island Kitchens",
+        "description": "Creating a central hub for cooking and gathering."
+      },
+      {
+        "title": "Parallel Kitchens",
+        "description": "Optimized for workflow and space."
+      }
+    ],
+    "materials": [
+      {
+        "name": "Laminates",
+        "description": "Durable and versatile finish for cabinetry."
+      },
+      {
+        "name": "Acrylic",
+        "description": "High-gloss, premium finish that reflects light."
+      }
+    ],
+    "process": [
+      {
+        "step": "1",
+        "title": "Consultation",
+        "description": "Discussing your requirements and space."
+      },
+      {
+        "step": "2",
+        "title": "Design & Planning",
+        "description": "Creating 2D layouts and 3D visualisations."
+      },
+      {
+        "step": "3",
+        "title": "Execution",
+        "description": "Fabrication and installation."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the timeline for a modular kitchen installation?",
+        "answer": "Timelines vary depending on complexity and materials, but generally range from a few weeks to a couple of months from design approval."
+      }
+    ]
+  },
+  {
+    "slug": "wardrobes-storage",
+    "title": "Wardrobes & Storage Solutions",
+    "shortTitle": "Wardrobes",
+    "category": "Core Services",
+    "eyebrow": "Storage Design",
+    "description": "Custom wardrobes and storage units designed to maximize space and organization without compromising on visual elegance.",
+    "heroImage": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=1200",
+    "gallery": [],
+    "whatWeDesign": [
+      {
+        "title": "Sliding Wardrobes",
+        "description": "Ideal for compact spaces."
+      },
+      {
+        "title": "Walk-in Closets",
+        "description": "Dedicated dressing areas with specialized storage."
+      }
+    ],
+    "materials": [],
+    "process": [],
+    "faqs": []
+  },
+  {
+    "slug": "full-home-interiors",
+    "title": "Full Home Interiors",
+    "shortTitle": "Full Home",
+    "category": "Core Services",
+    "eyebrow": "Complete Interior Architecture",
+    "description": "End-to-end interior design and execution for your entire home. From spatial planning to final styling, we ensure a cohesive aesthetic throughout.",
+    "heroImage": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200",
+    "gallery": [
+      "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "whatWeDesign": [],
+    "materials": [],
+    "process": [
+      {
+        "step": "1",
+        "title": "Concept & Layout",
+        "description": "Establishing the functional flow and visual language."
+      },
+      {
+        "step": "2",
+        "title": "Detailed Design",
+        "description": "Material selection and technical drawings."
+      },
+      {
+        "step": "3",
+        "title": "Site Execution",
+        "description": "Project management and quality control."
+      },
+      {
+        "step": "4",
+        "title": "Handover",
+        "description": "Final styling and walk-through."
+      }
+    ],
+    "relatedProjects": [
+      "oak-timber-house",
+      "coastal-retreat"
+    ],
+    "faqs": [
+      {
+        "question": "Do you handle civil work?",
+        "answer": "Yes, our full home service includes necessary civil modifications as part of the interior scope."
+      }
+    ]
+  },
+  {
+    "slug": "renovation",
+    "title": "Home Renovation",
+    "shortTitle": "Renovation",
+    "category": "Core Services",
+    "eyebrow": "Transformation",
+    "description": "Transforming existing spaces to meet modern functional needs while respecting the original character of the home.",
+    "heroImage": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200",
+    "gallery": [],
+    "whatWeDesign": [],
+    "materials": [],
+    "process": [],
+    "faqs": []
+  },
+  {
+    "slug": "commercial-office-spaces",
+    "title": "Commercial & Office Spaces",
+    "shortTitle": "Commercial",
+    "category": "Core Services",
+    "eyebrow": "Workspace Design",
+    "description": "Designing inspiring, productive environments for businesses. We focus on spatial efficiency, brand identity, and employee well-being.",
+    "heroImage": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000",
+    "gallery": [
+      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "whatWeDesign": [],
+    "materials": [],
+    "process": [],
+    "relatedProjects": [
+      "modern-loft"
+    ],
+    "faqs": []
+  }
+]

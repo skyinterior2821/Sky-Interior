@@ -1,0 +1,71 @@
+[
+  {
+    "slug": "budget-cost",
+    "title": "The Ultimate Budget & Cost Guide",
+    "category": "PLANNING",
+    "excerpt": "Understand interior costs, what drives pricing, and where to invest for maximum impact.",
+    "heroImage": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200",
+    "readingTime": "5 min read",
+    "sections": [
+      {
+        "heading": "Understanding Interior Costs",
+        "content": "Budgeting for an interior design project can be daunting. Costs are typically driven by three main factors: civil work, material quality, and custom joinery. By prioritizing where you spend, you can achieve a premium look without unnecessary expenditure."
+      },
+      {
+        "heading": "Where to Invest",
+        "content": "We recommend investing heavily in permanent fixtures like kitchen cabinetry, flooring, and bathroom fittings. These elements see the most wear and tear and are the hardest to replace. Opt for high-quality hinges and moisture-resistant core materials."
+      },
+      {
+        "heading": "Where to Save",
+        "content": "You can often save on decorative lighting, soft furnishings, and loose furniture. These items can be easily upgraded over time as your budget allows, without requiring structural changes to your home."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is a good starting budget for a 2BHK?",
+        "answer": "Budgets vary widely based on finishes. We recommend scheduling a consultation so we can provide an estimate tailored to your specific requirements."
+      }
+    ]
+  },
+  {
+    "slug": "laminates",
+    "title": "A Guide to Laminates",
+    "category": "MATERIALS",
+    "excerpt": "Everything you need to know about choosing laminates for your wardrobes and kitchens.",
+    "heroImage": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200",
+    "readingTime": "4 min read",
+    "sections": [
+      {
+        "heading": "What is a Laminate?",
+        "content": "Laminates are composite artificial materials created by pressing together thin layers of flat paper and plastic resins. They are widely used as a surface finish for furniture, cabinetry, and flooring due to their durability and variety."
+      },
+      {
+        "heading": "Matte vs. Gloss",
+        "content": "Matte laminates offer a sophisticated, understated look and are excellent at hiding smudges and scratches. Gloss laminates reflect light, making spaces feel larger, but require more frequent cleaning to maintain their pristine appearance."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "kitchen",
+    "title": "Kitchen Design Essentials",
+    "category": "ROOMS",
+    "excerpt": "Key principles for designing a functional and beautiful modular kitchen.",
+    "heroImage": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2000",
+    "readingTime": "6 min read",
+    "sections": [
+      {
+        "heading": "The Work Triangle",
+        "content": "A well-designed kitchen relies on the work triangle: the optimal distance between the sink, refrigerator, and stove. Keeping these three elements in close proximity ensures an efficient cooking experience."
+      },
+      {
+        "heading": "Storage Solutions",
+        "content": "Maximize every inch of your kitchen with pull-out pantries, deep drawers for pots, and magic corners for hard-to-reach areas. Organization is the secret to a clutter-free countertop."
+      }
+    ],
+    "relatedServices": [
+      "modular-kitchens"
+    ],
+    "faqs": []
+  }
+]

@@ -31,32 +31,35 @@ const STEPS = [
   },
 ];
 
-function StepItem({ step }: { step: typeof STEPS[0] }) {
+function StepItem({ step, index }: { step: typeof STEPS[0], index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start 80%", "center center"]
+    offset: ["start 90%", "center center"]
   });
   
-  const opacity = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
-  const scale = useTransform(scrollYProgress, [0, 1], [0.95, 1]);
-  const y = useTransform(scrollYProgress, [0, 1], [30, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
+  const x = useTransform(scrollYProgress, [0, 1], [20, 0]);
 
   return (
     <motion.div 
       ref={ref} 
-      style={{ opacity, scale, y }} 
-      className="flex flex-col border-l border-accent/20 pl-6 md:pl-8 lg:pl-16 py-4"
+      style={{ opacity, x }} 
+      className="flex flex-col md:flex-row gap-6 md:gap-16 border-t border-border pt-12 pb-8"
     >
-      <span className="font-serif text-[80px] md:text-[length:var(--text-hero)] lg:text-[140px] text-accent/20 leading-none mb-6 block drop-shadow-xl">
-        {step.number}
-      </span>
-      <h3 className="font-serif text-[length:var(--text-h3)] lg:text-[length:var(--text-h2)] mt-2 mb-4 text-ink">
-        {step.title}
-      </h3>
-      <p className="text-ink-muted text-[length:var(--text-lg)] leading-relaxed max-w-xl font-light">
-        {step.description}
-      </p>
+      <div className="md:w-1/4">
+        <span className="font-sans text-xs tracking-[0.2em] uppercase text-accent-deep block">
+          Phase {step.number}
+        </span>
+      </div>
+      <div className="md:w-3/4">
+        <h3 className="font-serif text-[length:var(--text-h2)] lg:text-[length:var(--text-h1)] mb-6 text-ink">
+          {step.title}
+        </h3>
+        <p className="text-ink-muted text-[length:var(--text-lg)] leading-relaxed max-w-2xl font-light">
+          {step.description}
+        </p>
+      </div>
     </motion.div>
   );
 }
@@ -65,29 +68,21 @@ export function ProcessSteps() {
   const container = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="process" ref={container} className="py-24 lg:py-40 bg-surface relative overflow-hidden">
+    <section id="process" ref={container} className="py-24 lg:py-40 bg-surface">
       <Container>
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-32">
-          {/* Sticky left side */}
-          <div className="lg:w-1/3">
-            <div className="sticky top-40">
-              <FadeIn>
-                <h2 className="font-serif text-[length:var(--text-h2)] lg:text-[length:var(--text-display)]">
-                  How we work
-                </h2>
-                <p className="mt-8 text-ink-muted text-lg max-w-sm leading-relaxed font-light">
-                  Our process is designed to eliminate surprises, ensuring that the final space is exactly what we agreed upon. No hidden fees, no compromised visions.
-                </p>
-              </FadeIn>
-            </div>
-          </div>
-          
-          {/* Scrolling right side */}
-          <div className="lg:w-2/3 flex flex-col gap-24 lg:gap-40 pt-16 lg:pt-0">
-            {STEPS.map((step) => (
-               <StepItem key={step.number} step={step} />
-            ))}
-          </div>
+        <FadeIn className="mb-20 lg:mb-32">
+          <h2 className="font-serif text-[length:var(--text-h2)] lg:text-[length:var(--text-display)] max-w-3xl leading-tight">
+            A meticulous approach to timeless spaces.
+          </h2>
+          <p className="mt-8 text-ink-muted text-[length:var(--text-lg)] max-w-xl leading-relaxed font-light">
+            Our process eliminates surprises, ensuring the final result is an elevated translation of your vision.
+          </p>
+        </FadeIn>
+        
+        <div className="flex flex-col">
+          {STEPS.map((step, idx) => (
+             <StepItem key={step.number} step={step} index={idx} />
+          ))}
         </div>
       </Container>
     </section>
