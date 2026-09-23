@@ -1,5 +1,9 @@
 import { redirect } from 'next/navigation';
-
+import type { Metadata } from 'next';
+import { Nav } from '@/components/Nav';
+import { Container, FadeIn } from '@/components/ui';
+import { ContactForm } from '@/components/ContactForm';
+import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: "Contact Top Interior Designers | Sky Interior",
