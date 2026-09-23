@@ -1,13 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export function FloatingActionButtons() {
   const callNumber = "+917726837691";
   const whatsappNumber = "917802967720";
   const instagramUrl = "https://www.instagram.com/skyinterior.design";
 
-  const buttonVariants = {
+  const buttonVariants: Variants = {
     hidden: { opacity: 0, scale: 0.5, y: 50 },
     visible: { 
       opacity: 1, 
