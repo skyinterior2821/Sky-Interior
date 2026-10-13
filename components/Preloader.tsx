@@ -2,9 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 export function Preloader() {
+  const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(true);
+
+  if (pathname?.startsWith("/admin")) return null;
 
   useEffect(() => {
     // Lock body scroll while loading

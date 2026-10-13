@@ -15,7 +15,7 @@ export function StickyCTA({ text = "Book a Consultation", href = "/consultation"
   const [isVisible, setIsVisible] = useState(false);
   const pathname = usePathname();
 
-  const hiddenPaths = ["/estimate", "/consultation", "/contact"];
+  const hiddenPaths = ["/estimate", "/consultation", "/contact", "/admin"];
   const isHiddenRoute = hiddenPaths.some(p => pathname?.startsWith(p));
 
   useEffect(() => {

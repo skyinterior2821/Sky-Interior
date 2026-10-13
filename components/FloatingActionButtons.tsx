@@ -1,8 +1,12 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export function FloatingActionButtons() {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/admin")) return null;
+
   const callNumber = "+917726837691";
   const whatsappNumber = "917802967720";
   const instagramUrl = "https://www.instagram.com/skyinterior.design";

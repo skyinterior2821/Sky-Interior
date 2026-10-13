@@ -8,6 +8,8 @@ export function LenisScroll() {
   const pathname = usePathname();
 
   useEffect(() => {
+    if (pathname?.startsWith("/admin")) return;
+
     // Force scroll to top on initial load
     window.scrollTo(0, 0);
 
@@ -27,7 +29,7 @@ export function LenisScroll() {
     return () => {
       lenis.destroy();
     };
-  }, []);
+  }, [pathname]);
 
   // Scroll to top on route change
   useEffect(() => {
