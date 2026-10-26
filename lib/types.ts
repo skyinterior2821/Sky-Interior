@@ -11,6 +11,7 @@ export interface Project {
   images: string[];
   closingLine: string;
   featured: boolean;
+  draft?: boolean;
 }
 
 export interface ContactFormData {

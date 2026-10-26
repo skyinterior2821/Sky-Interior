@@ -1,10 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Project } from "@/lib/types";
-import { useReducedMotion } from "framer-motion";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 
 interface ProjectCardProps {
   project: Project;
@@ -12,50 +10,39 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, large = false }: ProjectCardProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
-
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="group block w-full focus-visible:outline-[var(--color-accent-deep)]"
+      className="group block w-full focus-visible:outline-[#9C5B3F]"
       aria-label={`View project: ${project.name}, a ${project.category} in ${project.city}`}
     >
-      {/* Image container - sharp architectural edges */}
-      <div
-        className={`relative overflow-hidden bg-[var(--color-border)] ${
-          large ? "aspect-[4/5] lg:aspect-[3/4]" : "aspect-[4/5]"
-        }`}
-      >
-        <Image
+      {/* Image container - sharp architectural edges, restrained hover */}
+      <div className="relative overflow-hidden border border-[#E5DFD5] bg-[#EBE7DF]">
+        <ImagePlaceholder
+          label={project.name}
+          sublabel={`${project.category} · ${project.city}`}
+          aspect={large ? "aspect-[4/5] lg:aspect-[3/4]" : "aspect-[4/5]"}
           src={project.heroImage}
-          alt={`Interior view of ${project.name} located in ${project.city}`}
-          fill
-          sizes={large ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, 33vw"}
-          className={`object-cover ${shouldReduceMotion ? '' : 'transform group-hover:scale-105 transition-all duration-[2s] ease-out grayscale-[0.2] group-hover:grayscale-0'} ${isLoaded ? 'opacity-90 group-hover:opacity-100 blur-0' : 'opacity-0 blur-lg'}`}
-          onLoad={() => setIsLoaded(true)}
+          alt={`Interior view of ${project.name} in ${project.city}`}
+          className="group-hover:scale-[1.02] transition-transform duration-500 ease-out"
         />
-        
-        {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out flex flex-col justify-end p-6 md:p-8" aria-hidden="true">
-            <span className={`self-end flex items-center justify-center w-12 h-12 rounded-full border border-[var(--color-surface)]/30 text-[var(--color-surface)] ${shouldReduceMotion ? '' : 'transform -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 ease-out group-hover:rotate-45'}`}>
-              ↗
-            </span>
-        </div>
       </div>
 
       {/* Info below image */}
-      <div className="mt-6 md:mt-8 flex flex-col md:flex-row md:items-start justify-between gap-4 border-t border-[var(--color-border)] pt-4">
+      <div className="mt-4 flex items-start justify-between gap-4 border-t border-[#E5DFD5] pt-3">
         <div className="flex-1">
-          <h3 className="font-serif text-[length:var(--text-h3)] text-[var(--color-ink)] group-hover:text-[var(--color-accent-deep)] transition-colors duration-500 leading-tight mb-2 flex items-center gap-4">
+          <h3 className="font-serif text-xl text-[#1C1B19] group-hover:text-[#9C5B3F] transition-colors duration-300 leading-snug">
             {project.name}
           </h3>
-        </div>
-        <div className="text-left md:text-right flex flex-col items-start md:items-end">
-          <p className="font-sans text-[10px] text-[var(--color-ink-muted)] tracking-[0.2em] uppercase mb-1 flex items-center gap-2">
-            {project.category} <span className="w-4 h-px bg-[var(--color-border)] inline-block"></span>
+          <p className="font-sans text-xs text-[#736F69] mt-0.5">
+            {project.scope}
           </p>
-          <p className="font-sans text-sm text-[var(--color-ink-muted)] font-light">
+        </div>
+        <div className="text-right shrink-0">
+          <p className="font-sans text-[11px] text-[#736F69] uppercase tracking-wider">
+            {project.category}
+          </p>
+          <p className="font-sans text-xs text-[#1C1B19] font-medium mt-0.5">
             {project.city}
           </p>
         </div>

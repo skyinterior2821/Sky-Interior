@@ -1,96 +1,65 @@
 "use client";
 
 import { Container, Button } from "@/components/ui";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
-import { useRef } from "react";
+import { FadeIn } from "@/components/ui/FadeIn";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 
 export function Hero() {
-  const shouldReduceMotion = useReducedMotion();
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
-
-  const yImage = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
-
-  // High-end architectural image
-  const heroImage = "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=2000";
-
   return (
-    <section ref={containerRef} className="relative pt-32 lg:pt-48 pb-16 lg:pb-32 bg-[var(--color-surface)] border-b border-[var(--color-border)] overflow-hidden">
+    <section className="relative pt-28 lg:pt-36 pb-16 lg:pb-24 bg-[#F5F2EC] border-b border-[#E5DFD5]">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           {/* Text Content */}
-          <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1 pt-8 lg:pt-0">
-            <motion.div
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-              animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            >
-              <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[var(--color-accent-deep)] mb-8 flex items-center gap-4">
-                <span className="w-8 h-px bg-[var(--color-accent-deep)]" />
-                Interior Design Studio — Ahmedabad
+          <div className="lg:col-span-6 flex flex-col justify-center order-2 lg:order-1">
+            <FadeIn>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-6 h-px bg-[#9C5B3F]" />
+                <p className="font-sans text-xs tracking-wider uppercase text-[#736F69]">
+                  Ahmedabad &amp; Banswara
+                </p>
+              </div>
+
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#1C1B19] leading-[1.15] mb-6 tracking-tight">
+                Spaces designed around how people actually live.
+              </h1>
+
+              <p className="font-sans text-base text-[#736F69] font-light leading-relaxed mb-8 max-w-xl">
+                Sky Interior is an interior design studio founded by Harshit Suthar and Palak Suthar. We plan, design, and deliver residential and commercial spaces with quiet restraint and turnkey precision.
               </p>
-            </motion.div>
 
-            <motion.h1
-              className="font-serif text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.05] text-[var(--color-ink)] mb-8 tracking-tight"
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-              animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            >
-              Spaces that feel like they were always yours.
-            </motion.h1>
-
-            <motion.p
-              className="text-[length:var(--text-body-l)] text-[var(--color-ink-muted)] max-w-[45ch] font-light leading-relaxed mb-12"
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-              animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-            >
-              Sky Interior plans, designs, and delivers full-home and commercial interiors — from first sketch to the last cushion.
-            </motion.p>
-
-            <motion.div
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-              animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-            >
-              <Button
-                href="/designs"
-                className="bg-[var(--color-ink)] text-[var(--color-surface)] hover:bg-[var(--color-accent-deep)] transition-colors px-10 py-5 rounded-none uppercase tracking-widest text-[10px] font-medium"
-              >
-                Explore Designs
-              </Button>
-            </motion.div>
+              <div className="flex flex-wrap items-center gap-4">
+                <Button
+                  href="/work"
+                  variant="primary"
+                  className="bg-[#1C1B19] text-[#F5F2EC] hover:bg-[#9C5B3F] transition-colors px-8 py-3.5 rounded-sm text-xs tracking-wider uppercase"
+                >
+                  View Selected Work
+                </Button>
+                <Button
+                  href="/contact"
+                  variant="outline"
+                  className="border border-[#1C1B19] text-[#1C1B19] hover:bg-[#1C1B19] hover:text-[#F5F2EC] transition-colors px-8 py-3.5 rounded-sm text-xs tracking-wider uppercase"
+                >
+                  Discuss a Project
+                </Button>
+              </div>
+            </FadeIn>
           </div>
 
-          {/* Image Content */}
-          <div className="lg:col-span-7 order-1 lg:order-2 relative">
-            <motion.div 
-              className="relative aspect-[4/5] lg:aspect-[3/4] w-full bg-[var(--color-border)] overflow-hidden"
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.95 }}
-              animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <motion.div
-                className="w-full h-full scale-110 origin-top"
-                style={{ y: shouldReduceMotion ? 0 : yImage }}
-              >
-                <Image
-                  src={heroImage}
-                  alt="Beautiful interior space"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  className="object-cover"
+          {/* Hero Image Visual Placeholder */}
+          <div className="lg:col-span-6 order-1 lg:order-2">
+            <FadeIn delay={0.15}>
+              <div className="border border-[#E5DFD5] bg-[#EBE7DF]">
+                <ImagePlaceholder
+                  label="Selected Interior Works"
+                  sublabel="Ahmedabad & Banswara Studios"
+                  aspect="aspect-[4/3] lg:aspect-[16/11]"
+                  className="w-full"
+                  priority={true}
                 />
-              </motion.div>
-            </motion.div>
+              </div>
+            </FadeIn>
           </div>
 
         </div>
@@ -98,4 +67,3 @@ export function Hero() {
     </section>
   );
 }
-

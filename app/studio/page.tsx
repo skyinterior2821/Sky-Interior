@@ -1,177 +1,243 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { Container, Button, FadeIn } from "@/components/ui";
-import Image from "next/image";
+import { Container, FadeIn } from "@/components/ui";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Premium Interior Design Studio",
+  title: "About the Studio | Sky Interior",
   description:
-    "Meet the founders of Sky Interior, Harshit and Palak Suthar. We are a premium interior design studio.",
-  keywords: [
-    "Interior Design Studio",
-    "Best Interior Designers",
-    "Top Interior Designers",
-    "Residential Interior Architecture",
-    "Harshit Suthar",
-    "Palak Suthar"
-  ]
+    "Sky Interior is an interior design studio based in Ahmedabad and Banswara founded by Harshit Suthar and Palak Suthar. Designing spaces around how people actually live.",
 };
 
-const SERVICES = [
+const PHILOSOPHY_PILLARS = [
   {
-    title: "Residential Interior Design",
-    description: "Full-scale interior architecture, spatial planning, and styling for private homes.",
+    title: "Honest Materials",
+    description: "We favor genuine materials that age gracefully — natural timber veneers, lime plaster, stone, and authentic metals. No synthetic imitation surfaces.",
   },
   {
-    title: "Commercial Spaces",
-    description: "Designing bespoke offices, retail environments, and hospitality spaces that reflect your brand identity.",
+    title: "Contextual Design",
+    description: "Designing for the climate and lifestyle of Western India. We account for natural light, ventilation, dust management, and cultural family traditions.",
   },
   {
-    title: "Turnkey Execution",
-    description: "End-to-end project management, ensuring the final build perfectly matches the approved designs.",
+    title: "Functional Craftsmanship",
+    description: "Every wardrobe shelf, kitchen counter, and electrical point is placed with purpose. Beauty arises naturally from seamless function.",
   },
   {
-    title: "Custom Joinery & Furniture",
-    description: "Designing and sourcing bespoke pieces that perfectly fit the proportions of your space.",
-  }
+    title: "Calm Restraint",
+    description: "We resist short-lived design fads. By decluttering spatial geometry and maintaining cohesive palettes, we create spaces that feel peaceful for decades.",
+  },
 ];
 
 export default function StudioPage() {
   return (
     <>
       <Nav />
-      <main className="pt-24 lg:pt-40 pb-24 lg:pb-32 overflow-hidden bg-bg">
-        {/* Page heading */}
-        <Container className="pb-16 lg:pb-32">
+      <main className="pt-28 lg:pt-36 bg-[#F5F2EC] text-[#1C1B19]">
+        {/* Page Heading */}
+        <Container className="pb-16 lg:pb-24 border-b border-[#E5DFD5]">
           <FadeIn>
-            <h1 className="font-serif text-[length:var(--text-h1)] lg:text-[120px] leading-[0.9] tracking-tight text-ink drop-shadow-sm">
-              A studio <br />
-              <span className="italic text-accent-deep">by design.</span>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-6 h-px bg-[#9C5B3F]" />
+              <p className="font-sans text-xs tracking-wider uppercase text-[#736F69]">
+                About Sky Interior
+              </p>
+            </div>
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#1C1B19] leading-tight mb-6 max-w-3xl">
+              A studio founded on quiet craftsmanship and personal attention.
             </h1>
+            <p className="font-sans text-base text-[#736F69] font-light max-w-2xl leading-relaxed">
+              Based in Ahmedabad and Banswara, Sky Interior is intentionally boutique. Every project receives direct conceptual and on-site guidance from the founders.
+            </p>
           </FadeIn>
         </Container>
 
-        {/* Opening Manifesto */}
-        <section className="pb-24 lg:pb-40">
+        {/* Founders Section */}
+        <section className="py-20 lg:py-28 border-b border-[#E5DFD5]">
           <Container>
-            <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
-              <div className="lg:col-span-4">
-                <FadeIn>
-                  <span className="font-sans text-xs uppercase tracking-widest text-accent-deep">Our Approach</span>
-                </FadeIn>
+            <FadeIn>
+              <div className="max-w-2xl mb-16">
+                <span className="font-sans text-xs tracking-wider uppercase text-[#736F69] block mb-3">
+                  Leadership
+                </span>
+                <h2 className="font-serif text-3xl text-[#1C1B19]">
+                  Meet Harshit and Palak
+                </h2>
               </div>
-              <div className="lg:col-span-8">
-                <FadeIn delay={0.1}>
-                  <p className="font-serif text-[length:var(--text-h3)] lg:text-[40px] text-ink leading-[1.3]">
-                    Sky Interior is a boutique design studio working across residential and
-                    commercial spaces in Ahmedabad and Banswara. We&apos;re small by choice — every project gets
-                    direct attention from the founders, not a rotating account team.
-                  </p>
-                  <p className="mt-8 text-[length:var(--text-lg)] text-ink-muted leading-relaxed max-w-2xl font-light">
-                    Good design isn&apos;t about filling a space — it&apos;s about
-                    deciding what a room is actually for, then removing everything
-                    that gets in the way of that. We&apos;d rather get proportion,
-                    light, and material right than chase a trend that won&apos;t hold
-                    up in five years.
-                  </p>
-                </FadeIn>
-              </div>
+            </FadeIn>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+              {/* Harshit */}
+              <FadeIn>
+                <div className="space-y-6">
+                  <div className="border border-[#E5DFD5] bg-[#EBE7DF]">
+                    <ImagePlaceholder
+                      label="Harshit Suthar"
+                      sublabel="Principal Designer &amp; Execution Lead"
+                      aspect="aspect-[4/5]"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-2xl text-[#1C1B19]">
+                      Harshit Suthar
+                    </h3>
+                    <p className="font-sans text-xs uppercase tracking-wider text-[#9C5B3F] font-medium mt-1 mb-4">
+                      Principal Designer &middot; Project Execution
+                    </p>
+                    <p className="font-sans text-sm text-[#736F69] leading-relaxed font-light">
+                      With deep expertise in spatial mechanics, structural detailing, and site coordination, Harshit ensures that what is drafted on paper is built faithfully on site. He oversees trade contractors, technical drawings, and procurement timelines to protect quality at every milestone.
+                    </p>
+                  </div>
+                </div>
+              </FadeIn>
+
+              {/* Palak */}
+              <FadeIn delay={0.15}>
+                <div className="space-y-6">
+                  <div className="border border-[#E5DFD5] bg-[#EBE7DF]">
+                    <ImagePlaceholder
+                      label="Palak Suthar"
+                      sublabel="Design Director &amp; Material Lead"
+                      aspect="aspect-[4/5]"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-2xl text-[#1C1B19]">
+                      Palak Suthar
+                    </h3>
+                    <p className="font-sans text-xs uppercase tracking-wider text-[#9C5B3F] font-medium mt-1 mb-4">
+                      Design Director &middot; Spatial Concepts
+                    </p>
+                    <p className="font-sans text-sm text-[#736F69] leading-relaxed font-light">
+                      Palak shapes the aesthetic narrative and spatial ergonomics of each project. Her work centers on layering natural textures, balancing color temperatures, and designing tailored joinery that supports the daily rhythms of modern families.
+                    </p>
+                  </div>
+                </div>
+              </FadeIn>
             </div>
           </Container>
         </section>
 
-        {/* Full-bleed Studio Image */}
-        <section className="relative w-full h-[50vh] lg:h-[70vh] overflow-hidden">
-          <Image
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2400"
-            alt="Sky Interior studio space"
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/20 to-transparent" />
-        </section>
-
-        {/* Pull Quote */}
-        <section className="py-24 lg:py-32">
-          <Container className="text-center">
-            <FadeIn>
-              <blockquote className="font-serif text-[length:var(--text-h2)] lg:text-[length:var(--text-hero)] italic text-ink leading-[1.2] max-w-4xl mx-auto">
-                &ldquo;We design around how a family actually uses a space day to day, not just how it photographs.&rdquo;
-              </blockquote>
-              <p className="mt-8 text-sm text-accent-deep uppercase tracking-widest font-semibold">— Harshit &amp; Palak Suthar</p>
-            </FadeIn>
-          </Container>
-        </section>
-
-        {/* Services Grid */}
-        <section className="py-24 lg:py-40 bg-surface">
+        {/* Studio Philosophy */}
+        <section className="py-20 lg:py-28 bg-[#FAF8F5] border-b border-[#E5DFD5]">
           <Container>
             <FadeIn>
-              <h2 className="font-serif text-[length:var(--text-h2)] lg:text-[length:var(--text-display)] mb-16 lg:mb-24">
-                Expertise
-              </h2>
+              <div className="max-w-2xl mb-16">
+                <span className="font-sans text-xs tracking-wider uppercase text-[#736F69] block mb-3">
+                  Ethos
+                </span>
+                <h2 className="font-serif text-3xl text-[#1C1B19]">
+                  Our design philosophy
+                </h2>
+                <p className="font-sans text-sm text-[#736F69] mt-3 font-light leading-relaxed">
+                  We believe interior architecture should serve living, not photography alone.
+                </p>
+              </div>
             </FadeIn>
-            <div className="grid md:grid-cols-2 gap-px bg-border/50 shadow-xl rounded-3xl overflow-hidden">
-              {SERVICES.map((service, i) => (
-                <div key={i} className="bg-surface p-12 lg:p-20 group hover:bg-bg transition-colors duration-500">
-                  <FadeIn delay={i * 0.1}>
-                    <span className="font-sans text-sm text-accent tracking-widest uppercase block mb-6 font-semibold">
-                      0{i + 1}
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+              {PHILOSOPHY_PILLARS.map((pillar, idx) => (
+                <FadeIn key={pillar.title} delay={idx * 0.1}>
+                  <div className="p-8 bg-[#F5F2EC] border border-[#E5DFD5] space-y-3">
+                    <span className="font-sans text-xs text-[#9C5B3F] font-medium tracking-wider uppercase">
+                      0{idx + 1}
                     </span>
-                    <h3 className="font-serif text-[length:var(--text-h3)] mb-4 group-hover:text-accent-deep transition-colors">
-                      {service.title}
+                    <h3 className="font-serif text-xl text-[#1C1B19]">
+                      {pillar.title}
                     </h3>
-                    <p className="text-ink-muted leading-relaxed font-light">
-                      {service.description}
+                    <p className="font-sans text-sm text-[#736F69] leading-relaxed font-light">
+                      {pillar.description}
                     </p>
-                  </FadeIn>
-                </div>
+                  </div>
+                </FadeIn>
               ))}
             </div>
           </Container>
         </section>
 
-        {/* Founders */}
-        <section className="py-24 lg:py-40">
+        {/* Two Studio Locations */}
+        <section className="py-20 lg:py-28 border-b border-[#E5DFD5]">
           <Container>
             <FadeIn>
-              <h2 className="font-serif text-[length:var(--text-h2)] lg:text-[length:var(--text-display)] mb-16 lg:mb-24 text-center lg:text-left">
-                The Founders
-              </h2>
+              <div className="max-w-2xl mb-16">
+                <span className="font-sans text-xs tracking-wider uppercase text-[#736F69] block mb-3">
+                  Presence
+                </span>
+                <h2 className="font-serif text-3xl text-[#1C1B19]">
+                  Two Studio Locations
+                </h2>
+                <p className="font-sans text-sm text-[#736F69] mt-3 font-light">
+                  Active projects and on-site supervision across Gujarat and Southern Rajasthan.
+                </p>
+              </div>
             </FadeIn>
 
-            <div className="grid lg:grid-cols-2 gap-16 lg:gap-32">
-              {/* Harshit */}
-              <FadeIn className="group">
-                <h3 className="font-serif text-[length:var(--text-h3)]">Harshit Suthar</h3>
-                <span className="block text-sm text-accent font-semibold uppercase tracking-widest mt-2 mb-6">Project Manager</span>
-                <p className="text-ink-muted leading-relaxed font-light">
-                  With a keen eye for execution and spatial mechanics, Harshit ensures that every design conceptualized is built to perfection. His background in project management means timelines are respected, and the unglamorous details are handled flawlessly.
-                </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+              <FadeIn>
+                <div className="p-8 bg-[#FAF8F5] border border-[#E5DFD5] space-y-4">
+                  <span className="font-sans text-xs tracking-widest uppercase text-[#9C5B3F] font-medium">
+                    Gujarat Studio
+                  </span>
+                  <h3 className="font-serif text-2xl text-[#1C1B19]">
+                    Ahmedabad
+                  </h3>
+                  <p className="font-sans text-sm text-[#736F69] font-light leading-relaxed">
+                    Serving residential communities and commercial clients across Ahmedabad, Gandhinagar, and surrounding regions.
+                  </p>
+                  <p className="font-sans text-xs text-[#1C1B19] pt-2">
+                    PIN 380058 &middot; Gujarat, India
+                  </p>
+                </div>
               </FadeIn>
 
-              {/* Palak */}
-              <FadeIn className="group" delay={0.2}>
-                <h3 className="font-serif text-[length:var(--text-h3)]">Palak Suthar</h3>
-                <span className="block text-sm text-accent font-semibold uppercase tracking-widest mt-2 mb-6">Design Manager</span>
-                <p className="text-ink-muted leading-relaxed font-light">
-                  Palak brings the creative vision to life. She obsessively layers textures, selects materials, and crafts the mood of a space. Her approach is rooted in timelessness—designing spaces around how a family actually lives day-to-day, rather than chasing fleeting trends.
-                </p>
+              <FadeIn delay={0.15}>
+                <div className="p-8 bg-[#FAF8F5] border border-[#E5DFD5] space-y-4">
+                  <span className="font-sans text-xs tracking-widest uppercase text-[#9C5B3F] font-medium">
+                    Rajasthan Studio
+                  </span>
+                  <h3 className="font-serif text-2xl text-[#1C1B19]">
+                    Banswara
+                  </h3>
+                  <p className="font-sans text-sm text-[#736F69] font-light leading-relaxed">
+                    Executing villa interiors, ancestral home renovations, and bespoke retail spaces in Banswara and neighboring districts.
+                  </p>
+                  <p className="font-sans text-xs text-[#1C1B19] pt-2">
+                    PIN 327001 &middot; Rajasthan, India
+                  </p>
+                </div>
               </FadeIn>
             </div>
           </Container>
         </section>
 
-        {/* Studio CTA */}
-        <section className="py-24 bg-surface border-t border-border">
-          <Container className="text-center">
+        {/* Bottom CTA */}
+        <section className="py-20 bg-[#FAF8F5] text-center">
+          <Container>
             <FadeIn>
-              <h2 className="font-serif text-[length:var(--text-h3)] mb-8">Discuss your project</h2>
-              <Button href="/contact" variant="primary" className="bg-ink text-surface px-12 py-5 rounded-full hover:bg-accent transition-colors duration-500">
-                Book a Consultation
-              </Button>
+              <h2 className="font-serif text-3xl text-[#1C1B19] mb-4">
+                Work directly with our founders
+              </h2>
+              <p className="font-sans text-sm text-[#736F69] max-w-md mx-auto mb-8 font-light">
+                Schedule a consultation to discuss your floor plan, timeline, and spatial ideas.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <Link
+                  href="/contact"
+                  className="px-8 py-3.5 bg-[#1C1B19] text-[#F5F2EC] hover:bg-[#9C5B3F] transition-colors text-xs uppercase tracking-wider rounded-sm font-medium"
+                >
+                  Contact Studio
+                </Link>
+                <a
+                  href={siteConfig.contact.whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-3.5 border border-[#1C1B19] text-[#1C1B19] hover:bg-[#1C1B19] hover:text-[#F5F2EC] transition-colors text-xs uppercase tracking-wider rounded-sm font-medium"
+                >
+                  WhatsApp Harshit &amp; Palak
+                </a>
+              </div>
             </FadeIn>
           </Container>
         </section>

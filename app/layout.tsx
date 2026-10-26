@@ -1,102 +1,93 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
-import { LenisScroll } from "@/components/LenisScroll";
-import { CustomCursor } from "@/components/CustomCursor";
-import { Noise } from "@/components/Noise";
-import { Preloader } from "@/components/Preloader";
+import { Newsreader, Hanken_Grotesk } from "next/font/google";
 import { FloatingActionButtons } from "@/components/FloatingActionButtons";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { StickyCTA } from "@/components/ui/StickyCTA";
+import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
-const inter = Inter({ 
+const hankenGrotesk = Hanken_Grotesk({ 
   subsets: ["latin"], 
   variable: "--font-sans",
   display: "swap",
+  weight: ["300", "400", "500", "600"],
 });
 
-const playfair = Playfair_Display({ 
+const newsreader = Newsreader({ 
   subsets: ["latin"], 
   variable: "--font-serif",
   display: "swap",
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Sky Interior | Premium Interior Design Studio",
+    default: "Sky Interior | Interior Design Studio Ahmedabad & Banswara",
     template: "%s | Sky Interior"
   },
   description:
-    "Sky Interior is a top-rated boutique interior design studio offering premium residential and commercial interior design, turnkey execution, and custom architecture.",
+    "Sky Interior is a boutique interior design studio based in Ahmedabad and Banswara run by Harshit Suthar and Palak Suthar. Designing spaces around how people actually live.",
   keywords: [
-    "Interior Designer",
-    "Best Interior Designer",
-    "Luxury Interior Design",
-    "Residential Interior Designer",
-    "Commercial Interior Design",
-    "Turnkey Interior Execution",
+    "Interior Designer Ahmedabad",
+    "Interior Designer Banswara",
     "Boutique Design Studio",
-    "Architectural Planning",
-    "Home Interiors",
-    "Office Interior Design",
-    "Sky Interior"
+    "Modular Kitchens",
+    "Turnkey Interior Execution",
+    "Residential Interiors",
+    "Commercial Interiors",
+    "Sky Interior",
+    "Harshit Suthar",
+    "Palak Suthar"
   ],
   authors: [{ name: "Harshit Suthar" }, { name: "Palak Suthar" }],
   creator: "Sky Interior",
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://www.theskyinterior.com/",
-    title: "Sky Interior | Premium Interior Design Studio",
-    description: "Premium residential and commercial interior design studio.",
+    url: siteConfig.url,
+    title: "Sky Interior | Interior Design Studio",
+    description: "Designing spaces around how people actually live. Ahmedabad & Banswara.",
     siteName: "Sky Interior",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1200",
-        width: 1200,
-        height: 630,
-        alt: "Sky Interior Portfolio Snapshot",
-      },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Sky Interior | Interior Design Studio",
-    description: "Premium residential and commercial interior design studio.",
+    description: "Designing spaces around how people actually live. Ahmedabad & Banswara.",
   },
   alternates: {
-    canonical: "https://www.theskyinterior.com/",
+    canonical: `${siteConfig.url}/`,
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  }
+  robots: siteConfig.indexable
+    ? {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large',
+          'max-snippet': -1,
+        },
+      }
+    : {
+        index: false,
+        follow: false,
+        googleBot: {
+          index: false,
+          follow: false,
+        },
+      },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable}`}
+      className={`${hankenGrotesk.variable} ${newsreader.variable}`}
     >
-      <body className="bg-[var(--color-ink)] text-[var(--color-surface)] antialiased font-sans selection:bg-[var(--color-accent)] selection:text-[var(--color-ink)]">
-        <Preloader />
-        <Noise />
-        <LenisScroll />
-        <CustomCursor />
+      <body className="bg-[#F5F2EC] text-[#1C1B19] antialiased font-sans selection:bg-[#9C5B3F] selection:text-[#F5F2EC]">
         <FloatingActionButtons />
-        <div className="pb-28 md:pb-0">
+        <main>
           {children}
-        </div>
-        <StickyCTA />
-        <SpeedInsights />
+        </main>
         
         {/* LocalBusiness JSON-LD Schema */}
         <script
@@ -105,45 +96,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "InteriorDesignBusiness",
-              name: "Sky Interior",
-              image: "https://www.theskyinterior.com/logo.png",
-              "@id": "https://www.theskyinterior.com/",
-              url: "https://www.theskyinterior.com/",
-              telephone: "+917802967720",
-              email: "skyinteriordesign08@gmail.com",
-              address: [
-                {
-                  "@type": "PostalAddress",
-                  addressLocality: "Ahmedabad",
-                  addressRegion: "Gujarat",
-                  addressCountry: "IN"
-                },
-                {
-                  "@type": "PostalAddress",
-                  addressLocality: "Banswara",
-                  addressRegion: "Rajasthan",
-                  addressCountry: "IN"
-                }
-              ],
+              name: siteConfig.name,
+              image: `${siteConfig.url}/logo.png`,
+              "@id": `${siteConfig.url}/`,
+              url: `${siteConfig.url}/`,
+              telephone: siteConfig.contact.phoneTel,
+              email: siteConfig.contact.email,
+              address: siteConfig.locations.map(loc => ({
+                "@type": "PostalAddress",
+                addressLocality: loc.addressLocality,
+                addressRegion: loc.addressRegion,
+                addressCountry: loc.country,
+                postalCode: loc.postalCode
+              })),
               geo: {
                 "@type": "GeoCoordinates",
                 latitude: 23.0225,
                 longitude: 72.5714
               },
-              founders: [
-                {
-                  "@type": "Person",
-                  name: "Harshit Suthar"
-                },
-                {
-                  "@type": "Person",
-                  name: "Palak Suthar"
-                }
-              ],
+              founders: siteConfig.founders.map(f => ({
+                "@type": "Person",
+                name: f.name
+              })),
               sameAs: [
-                "https://www.instagram.com/skyinterior.design"
-              ],
-              priceRange: "$$$"
+                siteConfig.contact.instagram
+              ]
             })
           }}
         />

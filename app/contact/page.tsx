@@ -1,34 +1,28 @@
-import { redirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Nav } from '@/components/Nav';
 import { Container, FadeIn } from '@/components/ui';
 import { ContactForm } from '@/components/ContactForm';
 import { Footer } from '@/components/Footer';
+import { siteConfig } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: "Contact Top Interior Designers | Sky Interior",
+  title: "Contact | Sky Interior",
   description:
-    "Get in touch with Sky Interior for your next residential or commercial project.",
-  keywords: [
-    "Contact Interior Designer",
-    "Hire Interior Designer",
-    "Interior Design Consultation",
-    "Sky Interior Contact"
-  ]
+    "Get in touch with Sky Interior for residential and commercial interior projects in Ahmedabad and Banswara.",
 };
 
 const NEXT_STEPS = [
   {
     title: "1. Review",
-    desc: "We review your details to ensure we're the right fit for your scope."
+    desc: "We review your requirements to ensure our studio is the right fit for your scope."
   },
   {
-    title: "2. Discovery Call",
-    desc: "A brief 15-minute call to discuss your vision, budget, and timeline."
+    title: "2. Initial Call",
+    desc: "A brief conversation to understand your space, timeline, and expectations."
   },
   {
-    title: "3. Consultation",
-    desc: "An in-depth consultation (on-site or studio) to build the initial brief."
+    title: "3. Site Consultation",
+    desc: "An in-depth consultation on-site or at the studio to begin planning."
   }
 ];
 
@@ -36,86 +30,77 @@ export default function ContactPage() {
   return (
     <>
       <Nav />
-      <main className="pt-24 lg:pt-40 pb-24 lg:pb-32 bg-bg overflow-hidden">
-        <Container className="pb-16 lg:pb-32">
+      <main className="pt-20 lg:pt-32 pb-20 lg:pb-28 bg-[#F5F2EC] text-[#1C1B19]">
+        <Container className="pb-12 lg:pb-16">
           <FadeIn>
-            <h1 className="font-serif text-[length:var(--text-h1)] lg:text-[120px] leading-[0.9] tracking-tight text-ink drop-shadow-sm">
-              Start a <br />
-              <span className="italic text-accent-deep">conversation.</span>
+            <h1 className="font-serif text-4xl lg:text-6xl tracking-tight text-[#1C1B19]">
+              Contact the studio.
             </h1>
           </FadeIn>
         </Container>
 
         <Container>
-          <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
             
             {/* Form Section */}
             <div className="lg:col-span-7">
               <FadeIn delay={0.1}>
-                <p className="text-[length:var(--text-lg)] text-ink-muted leading-relaxed mb-12 font-light">
-                  We take on a limited number of projects each year to ensure
-                  every space gets the attention it deserves. Tell us a bit about
-                  what you&apos;re looking to do.
+                <p className="font-sans text-sm text-[#736F69] leading-relaxed mb-8">
+                  We take on a limited number of projects at a time to ensure personal attention on every site. Tell us about your space and what you are planning.
                 </p>
-
                 <ContactForm />
               </FadeIn>
             </div>
 
             {/* Sidebar / Info Section */}
             <div className="lg:col-span-4 lg:col-start-9">
-              <FadeIn delay={0.2} className="space-y-16">
+              <FadeIn delay={0.2} className="space-y-12">
                 
                 {/* What happens next */}
-                <div className="bg-surface p-8 rounded-3xl border border-border/50 shadow-sm">
-                  <h3 className="font-serif text-[length:var(--text-h3)] mb-6 text-ink">What happens next</h3>
-                  <div className="space-y-6">
+                <div className="bg-[#FAF8F5] p-6 border border-[#E5DFD5]">
+                  <h3 className="font-serif text-lg mb-4 text-[#1C1B19]">What happens next</h3>
+                  <div className="space-y-4">
                     {NEXT_STEPS.map((step, i) => (
-                      <div key={i} className="relative pl-6 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-accent before:rounded-full">
-                        <h4 className="font-sans text-sm font-semibold uppercase tracking-widest text-ink mb-1">{step.title}</h4>
-                        <p className="text-ink-muted font-light text-sm leading-relaxed">{step.desc}</p>
+                      <div key={i} className="space-y-1">
+                        <h4 className="font-sans text-xs font-semibold uppercase tracking-wider text-[#1C1B19]">{step.title}</h4>
+                        <p className="font-sans text-xs text-[#736F69] leading-relaxed">{step.desc}</p>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Contact Details */}
-                <div className="space-y-10">
+                {/* Direct Contact Details */}
+                <div className="space-y-6 font-sans text-sm text-[#736F69]">
                   <div>
-                    <h3 className="font-sans text-xs uppercase tracking-widest text-accent font-semibold mb-3">Studio Location</h3>
-                    <address className="not-italic font-serif text-[length:var(--text-h3)] text-ink leading-tight">
-                      Bopal<br />
-                      Ahmedabad, Gujarat
-                    </address>
+                    <h3 className="text-xs uppercase tracking-wider text-[#1C1B19] font-medium mb-2">Studio Locations</h3>
+                    <p className="text-[#1C1B19]">Ahmedabad, Gujarat</p>
+                    <p className="text-[#1C1B19]">Banswara, Rajasthan</p>
                   </div>
                   
                   <div>
-                    <h3 className="font-sans text-xs uppercase tracking-widest text-accent font-semibold mb-3">Call / WhatsApp</h3>
-                    <div className="space-y-2">
-                      <a href="tel:+917726837091" className="font-serif text-[length:var(--text-h3)] text-ink hover:text-accent-deep transition-colors block">
-                        +91 77268 37091
+                    <h3 className="text-xs uppercase tracking-wider text-[#1C1B19] font-medium mb-2">Phone & WhatsApp</h3>
+                    <div className="space-y-1">
+                      <a href={`tel:${siteConfig.contact.phoneTel}`} className="block text-[#1C1B19] hover:text-[#9C5B3F]">
+                        Call: {siteConfig.contact.phoneDisplay}
                       </a>
-                      <a href="https://wa.me/917802967720" target="_blank" rel="noopener noreferrer" className="font-serif text-[length:var(--text-h3)] text-ink hover:text-accent-deep transition-colors flex items-center gap-2">
-                        <span className="text-sm font-sans tracking-widest uppercase text-ink-muted mt-1">WA:</span> +91 78029 67720
+                      <a href={siteConfig.contact.whatsappLink} target="_blank" rel="noopener noreferrer" className="block text-[#1C1B19] hover:text-[#9C5B3F]">
+                        WhatsApp: {siteConfig.contact.whatsappDisplay}
                       </a>
                     </div>
                   </div>
                   
                   <div>
-                    <h3 className="font-sans text-xs uppercase tracking-widest text-accent font-semibold mb-3">Email</h3>
-                    <p className="font-serif text-[length:var(--text-lg)] text-ink">
-                      <a href="mailto:skyinteriordesign08@gmail.com" className="hover:text-accent-deep transition-colors">skyinteriordesign08@gmail.com</a>
-                    </p>
+                    <h3 className="text-xs uppercase tracking-wider text-[#1C1B19] font-medium mb-2">Email</h3>
+                    <a href={`mailto:${siteConfig.contact.email}`} className="text-[#1C1B19] hover:text-[#9C5B3F]">
+                      {siteConfig.contact.email}
+                    </a>
                   </div>
                   
                   <div>
-                    <h3 className="font-sans text-xs uppercase tracking-widest text-accent font-semibold mb-3">Follow Us</h3>
-                    <p className="font-serif text-[length:var(--text-h3)] text-ink">
-                      <a href="https://www.instagram.com/skyinterior.design" target="_blank" rel="noopener noreferrer" className="hover:text-accent-deep transition-colors flex items-center gap-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                        @skyinterior.design
-                      </a>
-                    </p>
+                    <h3 className="text-xs uppercase tracking-wider text-[#1C1B19] font-medium mb-2">Instagram</h3>
+                    <a href={siteConfig.contact.instagram} target="_blank" rel="noopener noreferrer" className="text-[#1C1B19] hover:text-[#9C5B3F]">
+                      {siteConfig.contact.instagramHandle}
+                    </a>
                   </div>
                 </div>
                 

@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense } from "react";
+import Link from "next/link";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -38,32 +39,34 @@ function WorkContent() {
   return (
     <>
       <Nav />
-      <main className="pt-32 lg:pt-40 pb-0 bg-[var(--color-surface)] min-h-screen">
+      <main className="pt-28 lg:pt-36 pb-0 bg-[#F5F2EC] text-[#1C1B19] min-h-screen">
         <Container>
           <FadeIn>
-            <div className="flex items-center gap-4 mb-8">
-              <span className="font-sans text-xs tracking-widest uppercase text-[var(--color-text-muted)]">Home</span>
-              <span className="text-[var(--color-text-muted)]">/</span>
-              <span className="font-sans text-xs tracking-widest uppercase text-[var(--color-accent)]">Work</span>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-6 h-px bg-[#9C5B3F]" />
+              <p className="font-sans text-xs tracking-wider uppercase text-[#736F69]">
+                Portfolio
+              </p>
             </div>
-            <h1 className="font-serif text-[length:var(--text-heading-xl)] lg:text-[length:var(--text-display-m)] text-[var(--color-ink)] mb-6">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#1C1B19] mb-4">
               Selected Work
             </h1>
-            <p className="text-[length:var(--text-body-l)] text-[var(--color-text-muted)] max-w-2xl font-light mb-16 lg:mb-24">
-              A curation of our finest residential and commercial spaces across Ahmedabad and Banswara.
+            <p className="font-sans text-base text-[#736F69] max-w-xl font-light mb-12">
+              Residential and commercial interior projects across Ahmedabad and Banswara.
             </p>
           </FadeIn>
           
-          <FadeIn delay={0.2}>
-            <div className="flex flex-wrap gap-3 mb-16 lg:mb-24">
+          {/* Filter Bar with square / 2px corners */}
+          <FadeIn delay={0.1}>
+            <div className="flex flex-wrap gap-2.5 mb-12 pb-6 border-b border-[#E5DFD5]">
               {categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setCategory(cat)}
-                  className={`font-sans text-xs tracking-widest uppercase px-6 py-3 rounded-full transition-all duration-300 ${
+                  className={`font-sans text-xs tracking-wider uppercase px-5 py-2.5 min-h-[44px] inline-flex items-center rounded-sm transition-all duration-200 cursor-pointer ${
                     activeCategory === cat 
-                      ? "bg-[var(--color-ink)] text-[var(--color-surface)] border border-[var(--color-ink)]" 
-                      : "bg-transparent text-[var(--color-text-muted)] border border-[var(--color-border)] hover:border-[var(--color-ink)] hover:text-[var(--color-ink)]"
+                      ? "bg-[#1C1B19] text-[#F5F2EC] border border-[#1C1B19]" 
+                      : "bg-[#FAF8F5] text-[#736F69] border border-[#E5DFD5] hover:border-[#1C1B19] hover:text-[#1C1B19]"
                   }`}
                 >
                   {cat}
@@ -72,40 +75,39 @@ function WorkContent() {
             </div>
           </FadeIn>
 
-          <motion.div layout className="pb-24 lg:pb-40">
+          <motion.div layout className="pb-24 lg:pb-36">
             <AnimatePresence mode="popLayout">
               {filteredProjects.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-16 items-start">
-                  {filteredProjects.map((project, i) => {
-                    // Pattern: Large (span 8), Small (span 4), Full (span 12), Small (span 5), Medium (span 7)
-                    let colSpan = "md:col-span-6";
-                    let isLarge = false;
-                    const patternIndex = i % 5;
-                    
-                    if (patternIndex === 0) { colSpan = "md:col-span-8"; isLarge = true; }
-                    else if (patternIndex === 1) { colSpan = "md:col-span-4 md:mt-32"; }
-                    else if (patternIndex === 2) { colSpan = "md:col-span-12"; isLarge = true; }
-                    else if (patternIndex === 3) { colSpan = "md:col-span-5"; }
-                    else if (patternIndex === 4) { colSpan = "md:col-span-7 md:mt-16"; isLarge = true; }
-
-                    return (
-                      <motion.div
-                        layout
-                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                        key={project.slug}
-                        className={colSpan}
-                      >
-                        <ProjectCard project={project} large={isLarge} />
-                      </motion.div>
-                    );
-                  })}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 items-start">
+                  {filteredProjects.map((project, i) => (
+                    <motion.div
+                      layout
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4 }}
+                      key={project.slug}
+                    >
+                      <ProjectCard project={project} large={i % 3 === 0} />
+                    </motion.div>
+                  ))}
                 </div>
               ) : (
-                <div className="col-span-full py-32 text-center border border-dashed border-[var(--color-border)]">
-                  <p className="font-serif text-[length:var(--text-heading-s)] text-[var(--color-text-muted)]">More projects coming soon.</p>
+                <div className="py-20 px-8 text-center border border-dashed border-[#E5DFD5] bg-[#FAF8F5] rounded-sm max-w-xl mx-auto space-y-3">
+                  <h3 className="font-serif text-2xl text-[#1C1B19]">
+                    Portfolio Documentation in Progress
+                  </h3>
+                  <p className="font-sans text-sm text-[#736F69] font-light leading-relaxed">
+                    New photography and project case studies are currently being prepared. To view active site photos or discuss an upcoming project, please contact our studio.
+                  </p>
+                  <div className="pt-2">
+                    <Link
+                      href="/contact"
+                      className="inline-block px-6 py-2.5 bg-[#1C1B19] text-[#F5F2EC] hover:bg-[#9C5B3F] transition-colors text-xs uppercase tracking-wider rounded-sm font-medium"
+                    >
+                      Inquire With Studio
+                    </Link>
+                  </div>
                 </div>
               )}
             </AnimatePresence>

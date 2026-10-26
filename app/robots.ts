@@ -1,12 +1,21 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from 'next';
+import { siteConfig } from '@/lib/site';
 
 export default function robots(): MetadataRoute.Robots {
+  if (!siteConfig.indexable) {
+    return {
+      rules: {
+        userAgent: '*',
+        disallow: '/',
+      },
+    };
+  }
+
   return {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/'],
     },
-    sitemap: 'https://www.theskyinterior.com/sitemap.xml',
-  }
+    sitemap: `${siteConfig.url}/sitemap.xml`,
+  };
 }

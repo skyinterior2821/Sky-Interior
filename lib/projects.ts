@@ -1,7 +1,18 @@
 import { Project } from "./types";
 import projectsData from "@/content/projects.json";
 
+/**
+ * Returns only published public projects (excluding draft: true).
+ * Draft projects are excluded from /work, home, sitemap and generateStaticParams.
+ */
 export function getAllProjects(): Project[] {
+  return (projectsData as Project[]).filter((p) => !p.draft);
+}
+
+/**
+ * Direct accessor when draft inspection is required.
+ */
+export function getAllProjectsIncludingDrafts(): Project[] {
   return projectsData as Project[];
 }
 
@@ -19,5 +30,5 @@ export function getProjectsByCategory(category: string): Project[] {
 }
 
 export function getAllCategories(): string[] {
-  return ["All", "Residential", "Commercial", "Hospitality"];
+  return ["All", "Residential", "Commercial"];
 }

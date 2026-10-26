@@ -22,11 +22,11 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
               "style-src 'self' 'unsafe-inline'",
-              "img-src 'self' data: blob: https://images.unsplash.com",
+              "img-src 'self' data: blob:",
               "font-src 'self' data:",
-              "connect-src 'self' https://script.google.com https://script.googleusercontent.com https://api.github.com",
+              "connect-src 'self' https://script.google.com https://script.googleusercontent.com",
               "frame-ancestors 'none'",
             ].join("; "),
           },
@@ -35,12 +35,7 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-    ],
+    remotePatterns: [],
   },
 };
 

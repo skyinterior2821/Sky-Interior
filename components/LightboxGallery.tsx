@@ -14,17 +14,24 @@ interface LightboxGalleryProps {
 
 export function LightboxGallery({ images, initialIndex = 0, isOpen, onClose }: LightboxGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
   const trapRef = useFocusTrap(isOpen);
+
+  if (isOpen !== prevIsOpen) {
+    setPrevIsOpen(isOpen);
+    if (isOpen) {
+      setCurrentIndex(initialIndex);
+    }
+  }
 
   useEffect(() => {
     if (isOpen) {
-      setCurrentIndex(initialIndex);
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
     return () => { document.body.style.overflow = ""; };
-  }, [isOpen, initialIndex]);
+  }, [isOpen]);
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));

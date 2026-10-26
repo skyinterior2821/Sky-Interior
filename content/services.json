@@ -1,165 +1,241 @@
 [
   {
-    "slug": "modular-kitchens",
-    "title": "Modular Kitchens",
-    "shortTitle": "Kitchens",
+    "slug": "residential-interiors",
+    "title": "Residential Interiors",
+    "shortTitle": "Residential",
     "category": "Core Services",
-    "eyebrow": "Kitchen Design",
-    "description": "Functional, beautifully crafted modular kitchens tailored to your cooking style and spatial requirements. We balance aesthetic appeal with everyday practicality.",
-    "heroImage": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200",
-    "gallery": [
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200",
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
-    ],
+    "eyebrow": "Home Architecture",
+    "description": "End-to-end interior design and execution for apartments, villas, and family residences. From spatial restructuring and material selection to customized furniture and final styling.",
+    "heroImage": "",
+    "gallery": [],
     "whatWeDesign": [
       {
-        "title": "L-Shaped Layouts",
-        "description": "Maximizing corner spaces efficiently."
+        "title": "Living & Dining Spaces",
+        "description": "Functional layouts centered on family life, conversation, and natural light."
       },
       {
-        "title": "Island Kitchens",
-        "description": "Creating a central hub for cooking and gathering."
+        "title": "Master & Guest Suites",
+        "description": "Restful, uncluttered sanctuaries with bespoke headboards and integrated wardrobes."
       },
       {
-        "title": "Parallel Kitchens",
-        "description": "Optimized for workflow and space."
+        "title": "Pooja & Meditation Nooks",
+        "description": "Contextual, culturally grounded spaces built with natural stone and crafted timber."
       }
     ],
     "materials": [
       {
-        "name": "Laminates",
-        "description": "Durable and versatile finish for cabinetry."
+        "name": "Natural Wood & Veneer",
+        "description": "Warm teak, oak, and ash finishes sourced responsibly."
       },
       {
-        "name": "Acrylic",
-        "description": "High-gloss, premium finish that reflects light."
+        "name": "Lime Plaster & Microcement",
+        "description": "Breathable, tactile wall finishes that age gracefully."
       }
     ],
     "process": [
       {
         "step": "1",
-        "title": "Consultation",
-        "description": "Discussing your requirements and space."
+        "title": "Lifestyle Consultation",
+        "description": "Understanding daily habits, family routines, and spatial priorities."
       },
       {
         "step": "2",
-        "title": "Design & Planning",
-        "description": "Creating 2D layouts and 3D visualisations."
+        "title": "Spatial Concept & 3D Visualisation",
+        "description": "Detailed floor layouts, 3D views, and tactile material palettes."
       },
       {
         "step": "3",
-        "title": "Execution",
-        "description": "Fabrication and installation."
-      }
-    ],
-    "faqs": [
-      {
-        "question": "What is the timeline for a modular kitchen installation?",
-        "answer": "Timelines vary depending on complexity and materials, but generally range from a few weeks to a couple of months from design approval."
-      }
-    ]
-  },
-  {
-    "slug": "wardrobes-storage",
-    "title": "Wardrobes & Storage Solutions",
-    "shortTitle": "Wardrobes",
-    "category": "Core Services",
-    "eyebrow": "Storage Design",
-    "description": "Custom wardrobes and storage units designed to maximize space and organization without compromising on visual elegance.",
-    "heroImage": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=1200",
-    "gallery": [],
-    "whatWeDesign": [
-      {
-        "title": "Sliding Wardrobes",
-        "description": "Ideal for compact spaces."
-      },
-      {
-        "title": "Walk-in Closets",
-        "description": "Dedicated dressing areas with specialized storage."
-      }
-    ],
-    "materials": [],
-    "process": [],
-    "faqs": []
-  },
-  {
-    "slug": "full-home-interiors",
-    "title": "Full Home Interiors",
-    "shortTitle": "Full Home",
-    "category": "Core Services",
-    "eyebrow": "Complete Interior Architecture",
-    "description": "End-to-end interior design and execution for your entire home. From spatial planning to final styling, we ensure a cohesive aesthetic throughout.",
-    "heroImage": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200",
-    "gallery": [
-      "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&q=80&w=1200",
-      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&q=80&w=1200"
-    ],
-    "whatWeDesign": [],
-    "materials": [],
-    "process": [
-      {
-        "step": "1",
-        "title": "Concept & Layout",
-        "description": "Establishing the functional flow and visual language."
-      },
-      {
-        "step": "2",
-        "title": "Detailed Design",
-        "description": "Material selection and technical drawings."
-      },
-      {
-        "step": "3",
-        "title": "Site Execution",
-        "description": "Project management and quality control."
-      },
-      {
-        "step": "4",
-        "title": "Handover",
-        "description": "Final styling and walk-through."
+        "title": "Execution & Turnkey Handover",
+        "description": "On-site carpentry, civil works, electrical fittings, and final handover."
       }
     ],
     "relatedProjects": [
       "oak-timber-house",
-      "coastal-retreat"
+      "urban-retreat",
+      "lakeside-villa"
     ],
     "faqs": [
       {
-        "question": "Do you handle civil work?",
-        "answer": "Yes, our full home service includes necessary civil modifications as part of the interior scope."
+        "question": "What is the typical timeline for a complete residential interior?",
+        "answer": "A full home interior typically spans 4 to 8 months depending on the square footage, civil modifications, and custom millwork required."
+      },
+      {
+        "question": "Do Harshit and Palak oversee the site directly?",
+        "answer": "Yes. Sky Interior remains intentionally boutique so that the founders personally supervise design detailing and key execution milestones."
       }
     ]
   },
   {
-    "slug": "renovation",
-    "title": "Home Renovation",
-    "shortTitle": "Renovation",
+    "slug": "modular-kitchens",
+    "title": "Modular Kitchens & Wardrobes",
+    "shortTitle": "Kitchens & Storage",
     "category": "Core Services",
-    "eyebrow": "Transformation",
-    "description": "Transforming existing spaces to meet modern functional needs while respecting the original character of the home.",
-    "heroImage": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200",
+    "eyebrow": "Precision Millwork",
+    "description": "High-utility modular kitchens and built-in wardrobes engineered with precision hardware, durable finishes, and ergonomic storage tailored to Indian cooking habits.",
+    "heroImage": "",
     "gallery": [],
-    "whatWeDesign": [],
-    "materials": [],
-    "process": [],
-    "faqs": []
+    "whatWeDesign": [
+      {
+        "title": "L-Shaped & Island Kitchens",
+        "description": "Maximizing counter prep space, wet/dry zoning, and breakfast seating."
+      },
+      {
+        "title": "Parallel & Straight Layouts",
+        "description": "Optimized workflow with dedicated pantry pull-outs and spice carousels."
+      },
+      {
+        "title": "Walk-in & Sliding Wardrobes",
+        "description": "Custom organizer systems with anti-dust profiles and soft-close German hardware."
+      }
+    ],
+    "materials": [
+      {
+        "name": "Marine Ply & HDHMR",
+        "description": "Moisture-resistant boiling waterproof core boards engineered for durability."
+      },
+      {
+        "name": "Acrylic & Matte Laminates",
+        "description": "Anti-fingerprint, scratch-resistant outer surfaces in calm earthy tones."
+      }
+    ],
+    "process": [
+      {
+        "step": "1",
+        "title": "Measurements & Workflow Mapping",
+        "description": "Precision laser measurements and mapping of appliance ergonomics."
+      },
+      {
+        "step": "2",
+        "title": "Hardware & Material Selection",
+        "description": "Selecting hinges, runners, quartz countertops, and profile lighting."
+      },
+      {
+        "step": "3",
+        "title": "Modular Installation",
+        "description": "Factory-finished carcass assembly and precision alignment on site."
+      }
+    ],
+    "relatedProjects": [
+      "oak-timber-house",
+      "lakeside-villa"
+    ],
+    "faqs": [
+      {
+        "question": "What brand of hardware do you use?",
+        "answer": "We use premium hardware systems including Hettich, Hafele, and Blum, backed by manufacturer warranties."
+      }
+    ]
   },
   {
     "slug": "commercial-office-spaces",
-    "title": "Commercial & Office Spaces",
+    "title": "Commercial & Workspace Design",
     "shortTitle": "Commercial",
     "category": "Core Services",
-    "eyebrow": "Workspace Design",
-    "description": "Designing inspiring, productive environments for businesses. We focus on spatial efficiency, brand identity, and employee well-being.",
-    "heroImage": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000",
-    "gallery": [
-      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=1200"
+    "eyebrow": "Workplace Architecture",
+    "description": "Calm, functional, and brand-aligned environments for corporate offices, creative agencies, medical clinics, and boutique retail spaces.",
+    "heroImage": "",
+    "gallery": [],
+    "whatWeDesign": [
+      {
+        "title": "Private Cabins & Boardrooms",
+        "description": "Acoustically balanced meeting rooms and executive workstations."
+      },
+      {
+        "title": "Open Workstations & Breakout Zones",
+        "description": "Flexible collaborative desking with integrated cable management."
+      },
+      {
+        "title": "Reception & Client Lounges",
+        "description": "Memorable welcoming foyers that express company culture and craft."
+      }
     ],
-    "whatWeDesign": [],
-    "materials": [],
-    "process": [],
+    "materials": [
+      {
+        "name": "Acoustic Fluted Panels & Glass",
+        "description": "Sound-dampening wall cladding and slim aluminum architectural glass partitions."
+      },
+      {
+        "name": "Commercial-Grade Finishes",
+        "description": "High-traffic laminates, quartz, and durable engineered stone surfaces."
+      }
+    ],
+    "process": [
+      {
+        "step": "1",
+        "title": "Occupancy & Flow Planning",
+        "description": "Analyzing team size, departmental adjacency, and technical MEP requirements."
+      },
+      {
+        "step": "2",
+        "title": "Detailed Working Drawings",
+        "description": "HVAC, electrical, data cabling, lighting, and custom furniture plans."
+      },
+      {
+        "step": "3",
+        "title": "Turnkey Buildout",
+        "description": "Managed site contractors with strict adherence to commercial lease schedules."
+      }
+    ],
     "relatedProjects": [
       "modern-loft"
     ],
-    "faqs": []
+    "faqs": [
+      {
+        "question": "Can you work around existing office building guidelines?",
+        "answer": "Yes. We coordinate with commercial facility managers regarding work hours, noise permits, fire safety, and freight elevator logistics."
+      }
+    ]
+  },
+  {
+    "slug": "turnkey-execution",
+    "title": "Turnkey Execution & Site Supervision",
+    "shortTitle": "Turnkey",
+    "category": "Core Services",
+    "eyebrow": "End-to-End Build",
+    "description": "Complete project management that takes design drawings through to finished space. We coordinate all skilled trades, procurement, and quality audits so you do not have to manage multiple contractors.",
+    "heroImage": "",
+    "gallery": [],
+    "whatWeDesign": [
+      {
+        "title": "Civil Modifications & Masonry",
+        "description": "Wall relocations, plaster repairs, and waterproofing."
+      },
+      {
+        "title": "Electrical & Plumbing Works",
+        "description": "Concealed wiring, circuit distribution, and plumbing fixture installation."
+      },
+      {
+        "title": "Carpentry & False Ceiling",
+        "description": "On-site millwork, drywall details, coves, and acoustic treatments."
+      }
+    ],
+    "materials": [],
+    "process": [
+      {
+        "step": "1",
+        "title": "Bill of Quantities (BOQ)",
+        "description": "Transparent line-item estimation of materials, labor, and timeline."
+      },
+      {
+        "step": "2",
+        "title": "Trade Coordination & Quality Control",
+        "description": "Daily site supervision to ensure work adheres to technical drawings."
+      },
+      {
+        "step": "3",
+        "title": "Snagging & Deep Cleaning",
+        "description": "Rigorous punch-list rectification and space handover ready to move in."
+      }
+    ],
+    "relatedProjects": [
+      "oak-timber-house",
+      "urban-retreat"
+    ],
+    "faqs": [
+      {
+        "question": "What is the benefit of turnkey execution over hiring individual carpenters?",
+        "answer": "Turnkey execution eliminates miscommunication between trades (e.g. electricians and carpenters), prevents budget creep, and places single-point accountability on our studio."
+      }
+    ]
   }
 ]

@@ -2,117 +2,71 @@
 
 :root {
   /* ==========================================================================
-     PHASE 2 DESIGN TOKENS
+     PHASE 2 DESIGN SYSTEM TOKENS
+     Calm, architectural, restrained portfolio palette
      ========================================================================== */
   
-  /* COLORS — Architecture & Editorial */
-  --color-ink: #141412; /* Deep warm charcoal */
-  --color-ink-soft: #232220; 
-  
-  --color-surface: #FCFBF9; /* Soft ivory */
-  --color-surface-elevated: #FFFFFF;
-  --color-surface-muted: #F3F2EE; /* Warm stone neutral */
-  
-  --color-paper: #F8F6F0; /* Warm paper */
-  --color-paper-soft: #FDFCF8;
-  
-  --color-text: #141412;
-  --color-text-muted: #6B6A68;
-  --color-text-subtle: #A3A19E;
-  
-  --color-border: #E5E4E0;
-  --color-border-strong: #D1D0CB;
-  
-  /* Accents */
-  --color-accent: #B0986C; /* Restrained metallic accent */
-  --color-accent-hover: #968159;
-  
-  /* System */
-  --color-success: #10B981;
-  --color-error: #EF4444;
+  /* CORE PALETTE */
+  --color-bg: #F5F2EC;              /* Warm off-white / lime plaster */
+  --color-ink: #1C1B19;             /* Near-black, high contrast */
+  --color-muted: #736F69;           /* Secondary / muted text */
+  --color-accent: #9C5B3F;          /* Terracotta / clay accent */
+  --color-border: #E5DFD5;          /* Subtle architectural border */
+  --color-surface: #FAF8F5;         /* Elevated clean card surface */
+  --color-placeholder: #EBE7DF;     /* Architectural image placeholder */
 
-  /* TYPOGRAPHY */
-  --text-display-xl: 5rem;    /* 80px */
-  --text-display-l: 4rem;     /* 64px */
-  --text-display-m: 3.5rem;   /* 56px */
-  --text-heading-xl: 3rem;    /* 48px */
-  --text-heading-l: 2.25rem;  /* 36px */
-  --text-heading-m: 1.875rem; /* 30px */
-  --text-heading-s: 1.5rem;   /* 24px */
-  --text-body-l: 1.125rem;    /* 18px */
-  --text-body-m: 1rem;        /* 16px */
-  --text-body-s: 0.875rem;    /* 14px */
-  --text-label: 0.75rem;      /* 12px */
-  --text-caption: 0.625rem;   /* 10px */
+  /* COMPATIBILITY TOKENS */
+  --color-surface-elevated: #FAF8F5;
+  --color-surface-muted: #EBE7DF;
+  --color-ink-soft: #2C2A26;
+  --color-paper: #FAF8F5;
+  --color-paper-soft: #F5F2EC;
+  --color-text: #1C1B19;
+  --color-text-muted: #736F69;
+  --color-text-subtle: #A8A29E;
+  --color-border-strong: #D1C9BE;
+  --color-accent-deep: #9C5B3F;
+  --color-accent-hover: #7E4831;
+  --color-clay: #9C5B3F;
 
-  /* SPACING SCALE */
-  --space-4: 0.25rem;
-  --space-8: 0.5rem;
-  --space-12: 0.75rem;
-  --space-16: 1rem;
-  --space-24: 1.5rem;
-  --space-32: 2rem;
-  --space-48: 3rem;
-  --space-64: 4rem;
-  --space-80: 5rem;
-  --space-96: 6rem;
-  --space-120: 7.5rem;
-  --space-160: 10rem;
-
-  /* RADII */
+  /* RADII - Crisp 2px architectural geometry */
   --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 8px;
-  --radius-full: 9999px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
 
-  /* LAYOUT */
+  /* SPACING & LAYOUT */
   --container-base: 1280px;
-  --container-wide: 1440px;
   --container-editorial: 800px;
-  --gutter-mobile: 24px;
-  --gutter-desktop: 64px;
-
-  /* ANIMATION */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --duration-micro: 150ms;
-  --duration-standard: 300ms;
-  --duration-reveal: 600ms;
 }
 
 @theme inline {
+  --color-bg: var(--color-bg);
   --color-ink: var(--color-ink);
-  --color-ink-soft: var(--color-ink-soft);
+  --color-muted: var(--color-muted);
+  --color-accent: var(--color-accent);
+  --color-border: var(--color-border);
   --color-surface: var(--color-surface);
+  --color-placeholder: var(--color-placeholder);
+
   --color-surface-elevated: var(--color-surface-elevated);
   --color-surface-muted: var(--color-surface-muted);
-  --color-paper: var(--color-paper);
-  --color-paper-soft: var(--color-paper-soft);
-  --color-text: var(--color-text);
-  --color-text-muted: var(--color-text-muted);
-  --color-text-subtle: var(--color-text-subtle);
-  --color-border: var(--color-border);
-  --color-border-strong: var(--color-border-strong);
-  --color-accent: var(--color-accent);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-ink-muted: var(--color-muted);
+  --color-accent-deep: var(--color-accent-deep);
   --color-accent-hover: var(--color-accent-hover);
-  --color-success: var(--color-success);
-  --color-error: var(--color-error);
-
-  /* Mapping for legacy compatibility during refactor */
-  --color-bg: var(--color-ink); /* Legacy */
-  --color-accent-deep: var(--color-accent); /* Legacy */
-  --color-clay: var(--color-ink-soft); /* Legacy */
-  --color-border-light: var(--color-border); /* Legacy */
+  --color-paper: var(--color-paper);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-muted);
 
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
 }
 
 body {
-  background-color: var(--color-surface);
+  background-color: var(--color-bg);
   color: var(--color-ink);
-  font-family: var(--font-sans), system-ui, sans-serif;
-  font-size: var(--text-body-m);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -121,37 +75,26 @@ body {
 h1, h2, h3, h4, .font-serif {
   font-family: var(--font-serif), Georgia, serif;
   font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
 }
 
 ::selection {
-  background-color: var(--color-accent);
-  color: var(--color-ink);
+  background-color: #9C5B3F;
+  color: #F5F2EC;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid #9C5B3F;
   outline-offset: 2px;
 }
+
 input:focus-visible, textarea:focus-visible {
   outline: none !important;
 }
-
-/* Base Shadow System */
-.shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
-.shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
-.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
 
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
   }
-}
-
-.glass {
-  background: rgba(5, 5, 5, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
 }

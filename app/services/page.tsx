@@ -2,131 +2,268 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { Container, Section, SectionHeader, PageShell } from "@/components/ui";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { CTABand } from "@/components/CTABand";
+import { Container, FadeIn } from "@/components/ui";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { siteConfig } from "@/lib/site";
 import servicesData from "@/content/services.json";
 
 export const metadata: Metadata = {
   title: "Interior Design Services | Sky Interior",
-  description: "Explore our comprehensive range of interior design services including modular kitchens, full home interiors, and commercial spaces.",
+  description:
+    "Comprehensive interior design and turnkey execution services in Ahmedabad and Banswara. Residential homes, modular kitchens, wardrobes, and commercial spaces.",
 };
+
+const STUDIO_FAQS = [
+  {
+    question: "How do you charge for your services?",
+    answer: "Our fees are structured transparently: a fixed design fee covering the planning, 2D drawings, 3D views, and material specifications, followed by a project management and execution schedule. There are no hidden markups.",
+  },
+  {
+    question: "Can we use our own carpenter or civil contractor?",
+    answer: "Yes. While our turnkey execution ensures single-point responsibility and strict quality control, we are also happy to provide complete design-only drawings and periodic site supervision if you have your own contractor.",
+  },
+  {
+    question: "How long does a typical full-home interior take?",
+    answer: "A complete 3BHK or 4BHK residential project in Ahmedabad or Banswara generally takes 4 to 7 months from layout sign-off to final handover.",
+  },
+  {
+    question: "Do you take on single-room projects or kitchen renovations?",
+    answer: "Yes. In addition to full residences, we take on modular kitchens, customized wardrobe suites, and commercial offices.",
+  },
+];
 
 export default function ServicesPage() {
   return (
     <>
       <Nav />
-      <PageShell className="pb-0">
-        <Container>
-          <Breadcrumbs 
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Services" }
-            ]} 
-          />
-          
-          <div className="max-w-4xl mt-8 mb-16 lg:mb-24">
-            <h1 className="font-serif text-[clamp(3rem,5vw,5rem)] text-[var(--color-ink)] mb-8 leading-none">
-              Services
+      <main className="pt-28 lg:pt-36 bg-[#F5F2EC] text-[#1C1B19]">
+        {/* Page Header */}
+        <Container className="pb-16 lg:pb-24 border-b border-[#E5DFD5]">
+          <FadeIn>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-6 h-px bg-[#9C5B3F]" />
+              <p className="font-sans text-xs tracking-wider uppercase text-[#736F69]">
+                What We Offer
+              </p>
+            </div>
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#1C1B19] leading-tight mb-6 max-w-3xl">
+              Interior services designed around how people live.
             </h1>
-            <p className="font-sans text-[length:var(--text-lg)] text-[var(--color-ink-muted)] font-light max-w-2xl leading-relaxed">
-              Thoughtful interiors, designed around how you live. From bespoke modular kitchens to complete home transformations, we offer end-to-end execution.
+            <p className="font-sans text-base text-[#736F69] font-light max-w-2xl leading-relaxed">
+              From tailored modular kitchens to complete turnkey home architecture, our studio manages every stage from spatial planning to final site handover.
             </p>
-          </div>
+          </FadeIn>
         </Container>
 
-        <div className="py-24 bg-[var(--color-surface)] border-t border-[var(--color-border)]">
+        {/* Folded Comprehensive Services Section */}
+        <section className="py-20 lg:py-28">
           <Container>
-            <div className="flex items-center gap-4 mb-24">
-              <span className="w-8 h-px bg-[var(--color-ink)] block" />
-              <h2 className="font-sans text-[10px] tracking-[0.2em] uppercase text-[var(--color-ink)]">Studio Services</h2>
-            </div>
-            
-            <div className="flex flex-col gap-32">
+            <div className="space-y-24 lg:space-y-36">
               {servicesData.map((service, idx) => (
-                <div key={service.slug} className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center group`}>
-                  
-                  <div className={`lg:col-span-5 flex flex-col justify-center ${idx % 2 === 1 ? 'lg:order-2 lg:pl-12' : 'lg:order-1 lg:pr-12'}`}>
-                    <span className="font-serif text-[clamp(3rem,5vw,4.5rem)] text-[var(--color-accent)] opacity-50 mb-6 block leading-none">
-                      {(idx + 1).toString().padStart(2, '0')}
+                <div
+                  key={service.slug}
+                  id={service.slug}
+                  className="border-t border-[#E5DFD5] pt-12 lg:pt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start"
+                >
+                  {/* Left Column: Number & Title & Visual */}
+                  <div className="lg:col-span-5 space-y-6">
+                    <span className="font-sans text-xs uppercase tracking-widest text-[#9C5B3F] font-medium block">
+                      0{idx + 1} &mdash; {service.eyebrow || "Service"}
                     </span>
-                    <h3 className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] text-[var(--color-ink)] mb-6 leading-[1.1] group-hover:text-[var(--color-accent)] transition-colors">
+                    <h2 className="font-serif text-2xl lg:text-3xl text-[#1C1B19] leading-snug">
                       {service.title}
-                    </h3>
-                    <p className="font-sans text-lg text-[var(--color-ink-muted)] font-light leading-relaxed mb-10 max-w-md">
+                    </h2>
+                    <p className="font-sans text-sm text-[#736F69] leading-relaxed font-light">
                       {service.description}
                     </p>
-                    <Link href={`/services/${service.slug}`} className="text-[10px] font-sans uppercase tracking-[0.2em] text-[var(--color-ink)] hover:text-[var(--color-accent)] transition-colors inline-flex items-center gap-4">
-                      Explore Service <span className="transform transition-transform group-hover:translate-x-2">→</span>
-                    </Link>
+
+                    <div className="pt-2">
+                      <ImagePlaceholder
+                        label={service.title}
+                        sublabel="Sky Interior Studio"
+                        aspect="aspect-[4/3]"
+                        src={service.heroImage}
+                        alt={service.title}
+                      />
+                    </div>
+
+                    <div className="pt-4 flex flex-wrap gap-4">
+                      <Link
+                        href="/contact"
+                        className="px-6 py-3 bg-[#1C1B19] text-[#F5F2EC] hover:bg-[#9C5B3F] transition-colors text-xs uppercase tracking-wider rounded-sm font-medium"
+                      >
+                        Inquire About This Service
+                      </Link>
+                      <a
+                        href={`https://wa.me/${siteConfig.contact.whatsappNumber}?text=Hello%20Sky%20Interior%2C%20I%20am%20interested%20in%20${encodeURIComponent(service.title)}.`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-6 py-3 border border-[#1C1B19] text-[#1C1B19] hover:bg-[#1C1B19] hover:text-[#F5F2EC] transition-colors text-xs uppercase tracking-wider rounded-sm font-medium"
+                      >
+                        WhatsApp Inquiry
+                      </a>
+                    </div>
                   </div>
-                  
-                  <div className={`lg:col-span-7 ${idx % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}>
-                    <Link href={`/services/${service.slug}`} className="block relative aspect-[4/3] lg:aspect-[16/10] bg-[var(--color-border)] overflow-hidden focus-visible:outline-[var(--color-accent)]">
-                      {service.heroImage ? (
-                        <img 
-                          src={service.heroImage} 
-                          alt={service.title} 
-                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
-                        />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center text-[var(--color-ink-muted)] text-[10px] uppercase tracking-[0.2em]">
-                          Coming Soon
+
+                  {/* Right Column: Detailed Breakdown (What we design, Materials, Process, FAQs) */}
+                  <div className="lg:col-span-7 space-y-12">
+                    {/* What We Design */}
+                    {service.whatWeDesign && service.whatWeDesign.length > 0 && (
+                      <div className="bg-[#FAF8F5] p-6 lg:p-8 border border-[#E5DFD5]">
+                        <h3 className="font-serif text-lg text-[#1C1B19] mb-4">
+                          Scope &amp; Deliverables
+                        </h3>
+                        <div className="grid sm:grid-cols-2 gap-6">
+                          {service.whatWeDesign.map((item, i) => (
+                            <div key={i} className="space-y-1">
+                              <h4 className="font-sans text-xs font-semibold uppercase tracking-wider text-[#1C1B19]">
+                                {item.title}
+                              </h4>
+                              <p className="font-sans text-xs text-[#736F69] leading-relaxed font-light">
+                                {item.description}
+                              </p>
+                            </div>
+                          ))}
                         </div>
-                      )}
-                    </Link>
+                      </div>
+                    )}
+
+                    {/* Materials & Specifications */}
+                    {service.materials && service.materials.length > 0 && (
+                      <div className="border-t border-[#E5DFD5] pt-8">
+                        <h3 className="font-serif text-lg text-[#1C1B19] mb-4">
+                          Materials &amp; Hardware
+                        </h3>
+                        <div className="grid sm:grid-cols-2 gap-6">
+                          {service.materials.map((mat, i) => (
+                            <div key={i} className="space-y-1">
+                              <h4 className="font-sans text-xs font-medium text-[#1C1B19]">
+                                {mat.name}
+                              </h4>
+                              <p className="font-sans text-xs text-[#736F69] leading-relaxed font-light">
+                                {mat.description}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Service Specific Process */}
+                    {service.process && service.process.length > 0 && (
+                      <div className="border-t border-[#E5DFD5] pt-8">
+                        <h3 className="font-serif text-lg text-[#1C1B19] mb-6">
+                          Workflow for this service
+                        </h3>
+                        <div className="grid sm:grid-cols-3 gap-6">
+                          {service.process.map((step) => (
+                            <div key={step.step} className="space-y-1.5">
+                              <span className="font-sans text-[11px] font-mono text-[#9C5B3F]">
+                                0{step.step}
+                              </span>
+                              <h4 className="font-serif text-sm text-[#1C1B19]">
+                                {step.title}
+                              </h4>
+                              <p className="font-sans text-xs text-[#736F69] leading-relaxed font-light">
+                                {step.description}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Service FAQs */}
+                    {service.faqs && service.faqs.length > 0 && (
+                      <div className="border-t border-[#E5DFD5] pt-8 space-y-4">
+                        <h3 className="font-serif text-base text-[#1C1B19]">
+                          Frequently Asked
+                        </h3>
+                        {service.faqs.map((faq, i) => (
+                          <div key={i} className="bg-[#FAF8F5] p-5 border border-[#E5DFD5] space-y-2">
+                            <p className="font-serif text-sm text-[#1C1B19] font-medium">
+                              {faq.question}
+                            </p>
+                            <p className="font-sans text-xs text-[#736F69] leading-relaxed font-light">
+                              {faq.answer}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                  
                 </div>
               ))}
             </div>
           </Container>
-        </div>
+        </section>
 
-        <div className="py-32 bg-[var(--color-paper)]">
+        {/* Studio FAQs Section */}
+        <section className="py-20 lg:py-28 bg-[#FAF8F5] border-t border-[#E5DFD5]">
           <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-              <div>
-                <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[var(--color-ink-muted)] mb-6 block">Our Approach</span>
-                <h2 className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] text-[var(--color-ink)] mb-8 leading-tight">
-                  A seamless journey from concept to reality.
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+              <div className="lg:col-span-4">
+                <span className="font-sans text-xs tracking-wider uppercase text-[#736F69] block mb-3">
+                  Questions &amp; Answers
+                </span>
+                <h2 className="font-serif text-3xl text-[#1C1B19] leading-snug">
+                  Working with Sky Interior.
                 </h2>
-                <p className="font-sans text-lg text-[var(--color-ink-muted)] font-light leading-relaxed mb-12 max-w-lg">
-                  We believe that great design should be matched by flawless execution. Our integrated process ensures that the vision we create together is realized down to the finest detail.
+                <p className="font-sans text-sm text-[#736F69] mt-4 leading-relaxed font-light">
+                  Have questions not answered here? Call us directly or message our founders on WhatsApp.
                 </p>
-                <Link href="/consultation" className="text-[10px] font-sans uppercase tracking-[0.2em] text-[var(--color-ink)] hover:text-[var(--color-accent)] transition-colors inline-flex items-center gap-4 group">
-                  Discuss your project <span className="transform transition-transform group-hover:translate-x-2">→</span>
-                </Link>
+                <div className="mt-6">
+                  <a
+                    href={siteConfig.contact.whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-wider text-[#1C1B19] hover:text-[#9C5B3F] font-medium"
+                  >
+                    <span>Ask on WhatsApp</span>
+                    <span>&rarr;</span>
+                  </a>
+                </div>
               </div>
-              <div className="pt-4 lg:pt-12">
-                <ul className="space-y-16">
-                  <li className="flex flex-col md:flex-row gap-6 md:gap-12 group">
-                    <span className="font-serif text-[clamp(3rem,4vw,4rem)] text-[var(--color-border-strong)] group-hover:text-[var(--color-accent)] transition-colors leading-none">01</span>
-                    <div>
-                      <h4 className="font-serif text-2xl text-[var(--color-ink)] mb-3">Consultation</h4>
-                      <p className="font-sans text-[var(--color-ink-muted)] font-light leading-relaxed max-w-sm">Understanding your space, budget, and lifestyle to form a strong foundation.</p>
-                    </div>
-                  </li>
-                  <li className="flex flex-col md:flex-row gap-6 md:gap-12 group">
-                    <span className="font-serif text-[clamp(3rem,4vw,4rem)] text-[var(--color-border-strong)] group-hover:text-[var(--color-accent)] transition-colors leading-none">02</span>
-                    <div>
-                      <h4 className="font-serif text-2xl text-[var(--color-ink)] mb-3">Design & Planning</h4>
-                      <p className="font-sans text-[var(--color-ink-muted)] font-light leading-relaxed max-w-sm">Detailed layouts, 3D visualizations, and meticulous material selection.</p>
-                    </div>
-                  </li>
-                  <li className="flex flex-col md:flex-row gap-6 md:gap-12 group">
-                    <span className="font-serif text-[clamp(3rem,4vw,4rem)] text-[var(--color-border-strong)] group-hover:text-[var(--color-accent)] transition-colors leading-none">03</span>
-                    <div>
-                      <h4 className="font-serif text-2xl text-[var(--color-ink)] mb-3">Execution & Handover</h4>
-                      <p className="font-sans text-[var(--color-ink-muted)] font-light leading-relaxed max-w-sm">Stringent quality control, fabrication, and timely site delivery.</p>
-                    </div>
-                  </li>
-                </ul>
+
+              <div className="lg:col-span-8 space-y-6">
+                {STUDIO_FAQS.map((faq, idx) => (
+                  <div
+                    key={idx}
+                    className="p-6 bg-[#F5F2EC] border border-[#E5DFD5] space-y-2"
+                  >
+                    <h3 className="font-serif text-lg text-[#1C1B19]">
+                      {faq.question}
+                    </h3>
+                    <p className="font-sans text-sm text-[#736F69] leading-relaxed font-light">
+                      {faq.answer}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </Container>
-        </div>
-      </PageShell>
+        </section>
+
+        {/* Bottom CTA */}
+        <section className="py-20 bg-[#F5F2EC] border-t border-[#E5DFD5] text-center">
+          <Container>
+            <FadeIn>
+              <h2 className="font-serif text-3xl text-[#1C1B19] mb-4">
+                Have a project in mind?
+              </h2>
+              <p className="font-sans text-sm text-[#736F69] max-w-md mx-auto mb-8 font-light">
+                Tell us about your space. We are available for projects across Ahmedabad and Banswara.
+              </p>
+              <Link
+                href="/contact"
+                className="px-8 py-3.5 bg-[#1C1B19] text-[#F5F2EC] hover:bg-[#9C5B3F] transition-colors text-xs uppercase tracking-wider rounded-sm inline-block font-medium"
+              >
+                Book a Consultation
+              </Link>
+            </FadeIn>
+          </Container>
+        </section>
+      </main>
       <Footer />
     </>
   );
